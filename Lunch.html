@@ -1,0 +1,813 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Foods4theSDAs</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-SgOJa3DmI69IUzQ2PVdRZhwQ+dy64/BUtbMJw1MZ8t5HZApcHrRKUc4W0kG879m7" crossorigin="anonymous">
+    <link rel="shortcut Icon" type="x-icon" href="Images/SDA Logo.jpeg">
+  </head>
+  <style>
+    .main-heading {
+        text-align: center; /* Center horizontally */
+        color: orange;      /* Text color */
+        margin-top: 100px;  /* Push it down a bit */
+        font-size: 3rem;    /* Make it bigger */
+        font-family: 'Arial', sans-serif; /* Nice clean font */
+      }
+      .recipe-card {
+  border: 2px solid transparent;
+  transition: border-color 0.3s ease;
+}
+
+.recipe-card.hovered {
+  border-color: lightblue;
+}
+
+.additional-info {
+  transition: opacity 0.5s ease;
+}
+
+/* Main Container Styles */
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f9f9f9;
+            margin: 0;
+            padding: 20px;
+        }
+
+        .recipes-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 30px;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        /* Recipe Card Styles */
+        .recipe-card {
+            perspective: 1000px;
+            height: 500px;
+            border-radius: 12px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+
+        .recipe-card-inner {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            transition: transform 0.6s;
+            transform-style: preserve-3d;
+        }
+
+        .recipe-card:hover .recipe-card-inner {
+            transform: rotateY(180deg);
+        }
+
+        .recipe-card-front,
+        .recipe-card-back {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            backface-visibility: hidden;
+            border-radius: 12px;
+            overflow: hidden;
+        }
+
+        .recipe-card-front {
+            background-color: #fff;
+        }
+
+        .recipe-card-back {
+            background-color: #f5f5f5;
+            transform: rotateY(180deg);
+            padding: 20px;
+            overflow-y: auto;
+        }
+
+        .recipe-image {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+        }
+
+        .recipe-title {
+            padding: 15px;
+            text-align: center;
+            background-color: #2E7D32;
+            color: white;
+            margin: 0;
+            font-size: 1.3rem;
+        }
+
+        .recipe-meta {
+            display: flex;
+            justify-content: space-around;
+            padding: 10px;
+            background-color: #E8F5E9;
+            color: #1B5E20;
+            font-weight: bold;
+        }
+
+        .recipe-content h4 {
+            color: #2E7D32;
+            margin: 15px 0 10px 0;
+            border-bottom: 2px solid #C8E6C9;
+            padding-bottom: 5px;
+        }
+
+        .recipe-content ul, .recipe-content ol {
+            padding-left: 20px;
+        }
+
+        .recipe-content li {
+            margin-bottom: 8px;
+            line-height: 1.4;
+        }
+
+        .vegan-tag {
+            background-color: #4CAF50;
+            color: white;
+            padding: 3px 10px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            display: inline-block;
+            margin-left: 10px;
+        }
+
+        .alternative-tip {
+            background-color: #FFF9C4;
+            padding: 10px;
+            border-left: 4px solid #FFD54F;
+            margin-top: 15px;
+            font-size: 0.9rem;
+            border-radius: 0 5px 5px 0;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .recipes-container {
+                grid-template-columns: 1fr;
+            }
+            
+            .recipe-card {
+                height: auto;
+                min-height: 500px;
+            }
+        }
+
+    </style>
+
+  <body>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.bundle.min.js" integrity="sha384-k6d4wzSIapyDyv1kpU366/PK5hCdSbCRGRCMv+eplOQJWyd1fbcAu9OCUj5zNLiq" crossorigin="anonymous"></script>
+    <h1 class="main-heading">Healthy Living with Adventists</h1>
+    <nav class="navbar navbar-expand-lg bg-body-tertiary">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="#">Healthy Living</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="index.html">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="HealthTips.html">HealthTips</a>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                Recipes
+              </a>
+              <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="Breakfast.html">Breakfast</a></li>
+                <li><a class="dropdown-item" href="Lunch.html">Lunch</a></li>
+                <li><a class="dropdown-item" href="Dinner.html">Dinner</a></li>
+              </ul>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="AboutUs.html">AboutUs</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="ContactUs.html">ContactUs</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="Feedback.html">Feedback</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+
+    <div class="recipes-container">
+
+        <!-- Recipe 1 -->
+        <div class="recipe-card">
+            <div class="recipe-card-inner">
+                <div class="recipe-card-front">
+                    <img src="Images/lentil walnut loaf.jpeg" alt="Lentil Walnut Loaf" class="recipe-image">
+                    <h3 class="recipe-title">Lentil Walnut Loaf <span class="vegan-tag">Vegan</span></h3>
+                    <div class="recipe-meta">
+                        <span>Prep: 15 mins</span>
+                        <span>Cook: 60 mins</span>
+                        <span>Serves: 6</span>
+                    </div>
+                </div>
+                <div class="recipe-card-back">
+                    <div class="recipe-content">
+                        <h4>Ingredients</h4>
+                        <ul>
+                            <li>1 cup dry green lentils</li>
+                            <li>1 cup walnuts, finely chopped</li>
+                            <li>1 onion, diced</li>
+                            <li>2 cloves garlic, minced</li>
+                            <li>1 cup rolled oats</li>
+                            <li>2 tbsp tomato paste</li>
+                            <li>1 tbsp soy sauce</li>
+                            <li>1 tsp thyme</li>
+                        </ul>
+                        <h4>Instructions</h4>
+                        <ol>
+                            <li>Cook lentils until tender (about 25 mins), drain</li>
+                            <li>Sauté onion and garlic until soft</li>
+                            <li>Combine all ingredients in bowl, mix well</li>
+                            <li>Press into greased loaf pan</li>
+                            <li>Bake at 375°F (190°C) for 45 mins</li>
+                        </ol>
+                        <div class="alternative-tip">
+                            <strong>Alternative:</strong> Replace walnuts with sunflower seeds for nut-free version
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Recipe 2 -->
+        <div class="recipe-card">
+            <div class="recipe-card-inner">
+                <div class="recipe-card-front">
+                    <img src="Images/A colorful dish of vegan quinoa stuffed peppers….jpeg" alt="Quinoa Stuffed Bell Peppers" class="recipe-image">
+                    <h3 class="recipe-title">Quinoa Stuffed Peppers <span class="vegan-tag">Vegan</span></h3>
+                    <div class="recipe-meta">
+                        <span>Prep: 20 mins</span>
+                        <span>Cook: 30 mins</span>
+                        <span>Serves: 4</span>
+                    </div>
+                </div>
+                <div class="recipe-card-back">
+                    <div class="recipe-content">
+                        <h4>Ingredients</h4>
+                        <ul>
+                            <li>4 large bell peppers</li>
+                            <li>1 cup quinoa, cooked</li>
+                            <li>1 can black beans, drained</li>
+                            <li>1 cup corn kernels</li>
+                            <li>1 tsp cumin</li>
+                            <li>1/2 cup salsa</li>
+                            <li>1 avocado (for serving)</li>
+                        </ul>
+                        <h4>Instructions</h4>
+                        <ol>
+                            <li>Cut tops off peppers and remove seeds</li>
+                            <li>Mix quinoa, beans, corn, cumin and salsa</li>
+                            <li>Stuff peppers with mixture</li>
+                            <li>Bake at 375°F (190°C) for 25-30 mins</li>
+                            <li>Top with avocado slices before serving</li>
+                        </ol>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Recipe 3 -->
+        <div class="recipe-card">
+            <div class="recipe-card-inner">
+                <div class="recipe-card-front">
+                    <img src="Images/Hearty Vegetarian Lasagna Made for Comfort and….jpeg" alt="Vegetable Lasagna" class="recipe-image">
+                    <h3 class="recipe-title">Vegetable Lasagna</h3>
+                    <div class="recipe-meta">
+                        <span>Prep: 30 mins</span>
+                        <span>Cook: 45 mins</span>
+                        <span>Serves: 8</span>
+                    </div>
+                </div>
+                <div class="recipe-card-back">
+                    <div class="recipe-content">
+                        <h4>Ingredients</h4>
+                        <ul>
+                            <li>9 lasagna noodles</li>
+                            <li>2 cups ricotta cheese (or tofu ricotta)</li>
+                            <li>2 cups spinach, chopped</li>
+                            <li>1 zucchini, sliced</li>
+                            <li>1 eggplant, sliced</li>
+                            <li>3 cups marinara sauce</li>
+                            <li>1 cup mozzarella (optional)</li>
+                        </ul>
+                        <h4>Instructions</h4>
+                        <ol>
+                            <li>Cook noodles according to package</li>
+                            <li>Layer noodles, ricotta, vegetables and sauce</li>
+                            <li>Repeat layers, ending with sauce</li>
+                            <li>Top with mozzarella if using</li>
+                            <li>Bake covered at 375°F (190°C) for 40 mins</li>
+                            <li>Uncover and bake 5 more mins</li>
+                        </ol>
+                        <div class="alternative-tip">
+                            <strong>Vegan Option:</strong> Use tofu ricotta and vegan cheese
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Recipe 4 -->
+        <div class="recipe-card">
+            <div class="recipe-card-inner">
+                <div class="recipe-card-front">
+                    <img src="Images/CHICKPEA SANDWICH🥪.jpeg" alt="Chickpea Salad Sandwich" class="recipe-image">
+                    <h3 class="recipe-title">Chickpea Salad Sandwich <span class="vegan-tag">Vegan</span></h3>
+                    <div class="recipe-meta">
+                        <span>Prep: 15 mins</span>
+                        <span>Cook: 0 mins</span>
+                        <span>Serves: 4</span>
+                    </div>
+                </div>
+                <div class="recipe-card-back">
+                    <div class="recipe-content">
+                        <h4>Ingredients</h4>
+                        <ul>
+                            <li>2 cans chickpeas, drained</li>
+                            <li>1/4 cup vegan mayo</li>
+                            <li>1 stalk celery, diced</li>
+                            <li>2 green onions, chopped</li>
+                            <li>1 tsp Dijon mustard</li>
+                            <li>1/2 tsp paprika</li>
+                            <li>8 slices whole grain bread</li>
+                            <li>Lettuce and tomato for serving</li>
+                        </ul>
+                        <h4>Instructions</h4>
+                        <ol>
+                            <li>Mash chickpeas with fork or potato masher</li>
+                            <li>Mix with all other ingredients except bread</li>
+                            <li>Season with salt and pepper to taste</li>
+                            <li>Serve on bread with lettuce and tomato</li>
+                        </ol>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Recipe 5 -->
+        <div class="recipe-card">
+            <div class="recipe-card-inner">
+                <div class="recipe-card-front">
+                    <img src="Images/These vegan sweet potato-black bean burgers spiced….jpeg" alt="Sweet Potato Black Bean Burgers" class="recipe-image">
+                    <h3 class="recipe-title">Sweet Potato Burgers <span class="vegan-tag">Vegan</span></h3>
+                    <div class="recipe-meta">
+                        <span>Prep: 20 mins</span>
+                        <span>Cook: 25 mins</span>
+                        <span>Serves: 6</span>
+                    </div>
+                </div>
+                <div class="recipe-card-back">
+                    <div class="recipe-content">
+                        <h4>Ingredients</h4>
+                        <ul>
+                            <li>2 cups mashed sweet potato</li>
+                            <li>1 can black beans, drained</li>
+                            <li>1/2 cup breadcrumbs</li>
+                            <li>1 tsp cumin</li>
+                            <li>1/2 tsp smoked paprika</li>
+                            <li>1 tbsp olive oil</li>
+                            <li>6 whole wheat buns</li>
+                        </ul>
+                        <h4>Instructions</h4>
+                        <ol>
+                            <li>Mash beans with sweet potato</li>
+                            <li>Add spices and breadcrumbs, mix well</li>
+                            <li>Form into 6 patties</li>
+                            <li>Chill for 30 mins (optional but helps firm up)</li>
+                            <li>Cook in oiled pan 5-6 mins per side</li>
+                            <li>Serve on buns with favorite toppings</li>
+                        </ol>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Recipe 6 -->
+        <div class="recipe-card">
+            <div class="recipe-card-inner">
+                <div class="recipe-card-front">
+                    <img src="Images/A nutritious bowl of stir-fried tofu and crisp….jpeg" alt="Vegetable Stir Fry with Tofu" class="recipe-image">
+                    <h3 class="recipe-title">Tofu Vegetable Stir Fry <span class="vegan-tag">Vegan</span></h3>
+                    <div class="recipe-meta">
+                        <span>Prep: 15 mins</span>
+                        <span>Cook: 15 mins</span>
+                        <span>Serves: 4</span>
+                    </div>
+                </div>
+                <div class="recipe-card-back">
+                    <div class="recipe-content">
+                        <h4>Ingredients</h4>
+                        <ul>
+                            <li>1 block firm tofu, pressed and cubed</li>
+                            <li>2 cups broccoli florets</li>
+                            <li>1 bell pepper, sliced</li>
+                            <li>1 carrot, julienned</li>
+                            <li>3 tbsp soy sauce</li>
+                            <li>1 tbsp maple syrup</li>
+                            <li>1 tsp ginger, grated</li>
+                            <li>2 cups cooked brown rice</li>
+                        </ul>
+                        <h4>Instructions</h4>
+                        <ol>
+                            <li>Stir-fry tofu in oil until golden, set aside</li>
+                            <li>Stir-fry vegetables 5-6 mins until crisp-tender</li>
+                            <li>Add sauce ingredients and tofu back to pan</li>
+                            <li>Cook 2 mins until sauce thickens slightly</li>
+                            <li>Serve over brown rice</li>
+                        </ol>
+                        <div class="alternative-tip">
+                            <strong>Alternative:</strong> Replace tofu with chicken for non-vegan version
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Recipe 7 -->
+        <div class="recipe-card">
+            <div class="recipe-card-inner">
+                <div class="recipe-card-front">
+                    <img src="Images/Avo-Chicken Salad.jpeg" alt="Avocado Chickpea Salad" class="recipe-image">
+                    <h3 class="recipe-title">Avocado Chickpea Salad <span class="vegan-tag">Vegan</span></h3>
+                    <div class="recipe-meta">
+                        <span>Prep: 10 mins</span>
+                        <span>Cook: 0 mins</span>
+                        <span>Serves: 4</span>
+                    </div>
+                </div>
+                <div class="recipe-card-back">
+                    <div class="recipe-content">
+                        <h4>Ingredients</h4>
+                        <ul>
+                            <li>2 avocados, diced</li>
+                            <li>1 can chickpeas, drained</li>
+                            <li>1/2 red onion, diced</li>
+                            <li>1/4 cup cilantro, chopped</li>
+                            <li>2 tbsp lime juice</li>
+                            <li>1 tsp cumin</li>
+                            <li>4 cups mixed greens</li>
+                        </ul>
+                        <h4>Instructions</h4>
+                        <ol>
+                            <li>Gently mix all ingredients except greens</li>
+                            <li>Season with salt and pepper</li>
+                            <li>Serve over bed of mixed greens</li>
+                            <li>Optional: serve with whole grain crackers</li>
+                        </ol>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Recipe 8 -->
+        <div class="recipe-card">
+            <div class="recipe-card-inner">
+                <div class="recipe-card-front">
+                    <img src="Images/2810cefa-3dcd-4ad8-82ef-1dfd9b0dc9ba.jpeg" alt="Vegetable Soup" class="recipe-image">
+                    <h3 class="recipe-title">Hearty Vegetable Soup</h3>
+                    <div class="recipe-meta">
+                        <span>Prep: 15 mins</span>
+                        <span>Cook: 30 mins</span>
+                        <span>Serves: 6</span>
+                    </div>
+                </div>
+                <div class="recipe-card-back">
+                    <div class="recipe-content">
+                        <h4>Ingredients</h4>
+                        <ul>
+                            <li>1 onion, diced</li>
+                            <li>2 carrots, sliced</li>
+                            <li>2 stalks celery, chopped</li>
+                            <li>3 cloves garlic, minced</li>
+                            <li>1 can diced tomatoes</li>
+                            <li>6 cups vegetable broth</li>
+                            <li>2 cups chopped cabbage</li>
+                            <li>1 tsp Italian seasoning</li>
+                        </ul>
+                        <h4>Instructions</h4>
+                        <ol>
+                            <li>Sauté onion, carrots and celery 5 mins</li>
+                            <li>Add garlic, cook 1 min more</li>
+                            <li>Add remaining ingredients</li>
+                            <li>Simmer 25-30 mins until vegetables are tender</li>
+                            <li>Season with salt and pepper to taste</li>
+                        </ol>
+                        <div class="alternative-tip">
+                            <strong>Variation:</strong> Add 1 cup cooked lentils for extra protein
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Recipe 9 -->
+        <div class="recipe-card">
+            <div class="recipe-card-inner">
+                <div class="recipe-card-front">
+                    <img src="Images/Avocado Stuffed Quinoa Salad {Vegetarian}….jpeg" alt="Stuffed Avocados" class="recipe-image">
+                    <h3 class="recipe-title">Quinoa Stuffed Avocados <span class="vegan-tag">Vegan</span></h3>
+                    <div class="recipe-meta">
+                        <span>Prep: 15 mins</span>
+                        <span>Cook: 15 mins</span>
+                        <span>Serves: 4</span>
+                    </div>
+                </div>
+                <div class="recipe-card-back">
+                    <div class="recipe-content">
+                        <h4>Ingredients</h4>
+                        <ul>
+                            <li>2 avocados, halved</li>
+                            <li>1 cup cooked quinoa</li>
+                            <li>1/2 cup black beans</li>
+                            <li>1/4 cup corn</li>
+                            <li>1 tbsp lime juice</li>
+                            <li>1/4 tsp chili powder</li>
+                            <li>Fresh cilantro for garnish</li>
+                        </ul>
+                        <h4>Instructions</h4>
+                        <ol>
+                            <li>Scoop out some avocado to make room for filling</li>
+                            <li>Mix quinoa, beans, corn, lime juice and spices</li>
+                            <li>Spoon mixture into avocado halves</li>
+                            <li>Garnish with cilantro</li>
+                            <li>Serve immediately</li>
+                        </ol>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Recipe 10 -->
+        <div class="recipe-card">
+            <div class="recipe-card-inner">
+                <div class="recipe-card-front">
+                    <img src="Images/A delightful vegan coconut curry with fresh….jpeg" alt="Vegetable Curry" class="recipe-image">
+                    <h3 class="recipe-title">Vegetable Coconut Curry <span class="vegan-tag">Vegan</span></h3>
+                    <div class="recipe-meta">
+                        <span>Prep: 20 mins</span>
+                        <span>Cook: 25 mins</span>
+                        <span>Serves: 6</span>
+                    </div>
+                </div>
+                <div class="recipe-card-back">
+                    <div class="recipe-content">
+                        <h4>Ingredients</h4>
+                        <ul>
+                            <li>1 tbsp coconut oil</li>
+                            <li>1 onion, diced</li>
+                            <li>3 cloves garlic, minced</li>
+                            <li>1 tbsp curry powder</li>
+                            <li>1 can coconut milk</li>
+                            <li>2 cups cauliflower florets</li>
+                            <li>1 sweet potato, cubed</li>
+                            <li>1 cup chickpeas</li>
+                            <li>2 cups cooked brown rice</li>
+                        </ul>
+                        <h4>Instructions</h4>
+                        <ol>
+                            <li>Sauté onion and garlic in oil 3 mins</li>
+                            <li>Add curry powder, cook 1 min</li>
+                            <li>Add coconut milk and vegetables</li>
+                            <li>Simmer 20 mins until vegetables are tender</li>
+                            <li>Serve over brown rice</li>
+                        </ol>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Recipe 11 -->
+        <div class="recipe-card">
+            <div class="recipe-card-inner">
+                <div class="recipe-card-front">
+                    <img src="Images/f7c63b72-22f2-455a-83ec-0331d6ae44ea.jpeg" alt="Spinach Mushroom Quesadillas" class="recipe-image">
+                    <h3 class="recipe-title">Spinach Mushroom Quesadillas</h3>
+                    <div class="recipe-meta">
+                        <span>Prep: 10 mins</span>
+                        <span>Cook: 15 mins</span>
+                        <span>Serves: 4</span>
+                    </div>
+                </div>
+                <div class="recipe-card-back">
+                    <div class="recipe-content">
+                        <h4>Ingredients</h4>
+                        <ul>
+                            <li>4 whole wheat tortillas</li>
+                            <li>2 cups spinach, chopped</li>
+                            <li>1 cup mushrooms, sliced</li>
+                            <li>1 cup shredded cheese (or vegan cheese)</li>
+                            <li>1/2 tsp garlic powder</li>
+                            <li>1/4 cup salsa for serving</li>
+                        </ul>
+                        <h4>Instructions</h4>
+                        <ol>
+                            <li>Sauté mushrooms and spinach until wilted</li>
+                            <li>Spread cheese on half of each tortilla</li>
+                            <li>Top with vegetable mixture</li>
+                            <li>Fold tortillas in half</li>
+                            <li>Cook in dry skillet 2-3 mins per side until golden</li>
+                            <li>Serve with salsa</li>
+                        </ol>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Recipe 12 -->
+        <div class="recipe-card">
+            <div class="recipe-card-inner">
+                <div class="recipe-card-front">
+                    <img src="Images/b43aed94-1bf0-44ed-b9c7-e58b51ff8ea0.jpeg" alt="Buddha Bowl" class="recipe-image">
+                    <h3 class="recipe-title">Rainbow Buddha Bowl <span class="vegan-tag">Vegan</span></h3>
+                    <div class="recipe-meta">
+                        <span>Prep: 20 mins</span>
+                        <span>Cook: 15 mins</span>
+                        <span>Serves: 2</span>
+                    </div>
+                </div>
+                <div class="recipe-card-back">
+                    <div class="recipe-content">
+                        <h4>Ingredients</h4>
+                        <ul>
+                            <li>1 cup cooked quinoa</li>
+                            <li>1/2 cup chickpeas, roasted</li>
+                            <li>1 cup mixed greens</li>
+                            <li>1/2 avocado, sliced</li>
+                            <li>1/2 cup shredded carrots</li>
+                            <li>1/4 cup hummus</li>
+                            <li>1 tbsp lemon-tahini dressing</li>
+                        </ul>
+                        <h4>Instructions</h4>
+                        <ol>
+                            <li>Divide quinoa between two bowls</li>
+                            <li>Arrange remaining ingredients in sections</li>
+                            <li>Drizzle with dressing</li>
+                            <li>Serve with extra dressing on the side</li>
+                        </ol>
+                        <div class="alternative-tip">
+                            <strong>Variations:</strong> Use any seasonal vegetables you have available
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Recipe 13 -->
+        <div class="recipe-card">
+            <div class="recipe-card-inner">
+                <div class="recipe-card-front">
+                    <img src="Images/This Vegetarian Paella is made in around 30….jpeg" alt="Vegetable Paella" class="recipe-image">
+                    <h3 class="recipe-title">Vegetable Paella <span class="vegan-tag">Vegan</span></h3>
+                    <div class="recipe-meta">
+                        <span>Prep: 15 mins</span>
+                        <span>Cook: 30 mins</span>
+                        <span>Serves: 6</span>
+                    </div>
+                </div>
+                <div class="recipe-card-back">
+                    <div class="recipe-content">
+                        <h4>Ingredients</h4>
+                        <ul>
+                            <li>1 tbsp olive oil</li>
+                            <li>1 onion, diced</li>
+                            <li>1 red bell pepper, sliced</li>
+                            <li>2 cups short grain rice</li>
+                            <li>1 tsp smoked paprika</li>
+                            <li>4 cups vegetable broth</li>
+                            <li>1 cup green beans</li>
+                            <li>1 cup artichoke hearts</li>
+                            <li>Lemon wedges for serving</li>
+                        </ul>
+                        <h4>Instructions</h4>
+                        <ol>
+                            <li>Sauté onion and bell pepper in oil 5 mins</li>
+                            <li>Add rice and paprika, stir 1 min</li>
+                            <li>Add broth and bring to boil</li>
+                            <li>Reduce heat, add vegetables</li>
+                            <li>Simmer 20 mins until rice is tender</li>
+                            <li>Let stand 5 mins before serving with lemon</li>
+                        </ol>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Recipe 14 -->
+        <div class="recipe-card">
+            <div class="recipe-card-inner">
+                <div class="recipe-card-front">
+                    <img src="Images/SAVE RECIPE NOW 👉 These Classic Greek Stuffed….jpeg" alt="Stuffed Zucchini Boats" class="recipe-image">
+                    <h3 class="recipe-title">Stuffed Zucchini Boats</h3>
+                    <div class="recipe-meta">
+                        <span>Prep: 20 mins</span>
+                        <span>Cook: 25 mins</span>
+                        <span>Serves: 4</span>
+                    </div>
+                </div>
+                <div class="recipe-card-back">
+                    <div class="recipe-content">
+                        <h4>Ingredients</h4>
+                        <ul>
+                            <li>2 large zucchinis</li>
+                            <li>1 cup cooked quinoa</li>
+                            <li>1/2 cup marinara sauce</li>
+                            <li>1/4 cup grated Parmesan (or nutritional yeast)</li>
+                            <li>1 tsp Italian seasoning</li>
+                            <li>1/4 cup breadcrumbs</li>
+                        </ul>
+                        <h4>Instructions</h4>
+                        <ol>
+                            <li>Cut zucchinis in half lengthwise, scoop out centers</li>
+                            <li>Mix quinoa, marinara, and seasonings</li>
+                            <li>Fill zucchini halves with mixture</li>
+                            <li>Sprinkle with breadcrumbs and cheese</li>
+                            <li>Bake at 375°F (190°C) for 20-25 mins</li>
+                        </ol>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Recipe 15 -->
+        <div class="recipe-card">
+            <div class="recipe-card-inner">
+                <div class="recipe-card-front">
+                    <img src="Images/Healthy Mediterranean Veggie and Hummus Wrap….jpeg" alt="Mediterranean Wrap" class="recipe-image">
+                    <h3 class="recipe-title">Mediterranean Wrap <span class="vegan-tag">Vegan</span></h3>
+                    <div class="recipe-meta">
+                        <span>Prep: 10 mins</span>
+                        <span>Cook: 0 mins</span>
+                        <span>Serves: 2</span>
+                    </div>
+                </div>
+                <div class="recipe-card-back">
+                    <div class="recipe-content">
+                        <h4>Ingredients</h4>
+                        <ul>
+                            <li>2 whole wheat tortillas</li>
+                            <li>1/2 cup hummus</li>
+                            <li>1/2 cucumber, sliced</li>
+                            <li>1/4 red onion, thinly sliced</li>
+                            <li>1/2 cup cherry tomatoes, halved</li>
+                            <li>1/4 cup kalamata olives</li>
+                            <li>1 cup baby spinach</li>
+                        </ul>
+                        <h4>Instructions</h4>
+                        <ol>
+                            <li>Spread hummus on tortillas</li>
+                            <li>Layer with remaining ingredients</li>
+                            <li>Roll up tightly</li>
+                            <li>Cut in half and serve</li>
+                        </ol>
+                        <div class="alternative-tip">
+                            <strong>Variation:</strong> Add feta cheese for non-vegan version
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div> <!-- End recipes-container -->
+</body>
+</html>
+        
+        <!-- Bootstrap JS Bundle -->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+        <!-- Custom JS -->
+        <script src="script.js"></script>
+        </body>
+
+
+<!-- Footer -->
+<footer class="bg-light text-center text-lg-start mt-5">
+  <div class="container p-4">
+    <p class="text-center">
+      © 2025 Healthy Living for Adventists | Designed with ❤️ to inspire healthy and faithful living.
+    </p>
+    <p class="text-center">
+      "So whether you eat or drink or whatever you do, do it all for the glory of God." — 1 Corinthians 10:31
+    </p>
+  </div>
+</footer>
+
+
+
+
+  </body>
+</html>
+  

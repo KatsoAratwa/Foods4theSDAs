@@ -1,0 +1,348 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Foods4theSDAs</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-SgOJa3DmI69IUzQ2PVdRZhwQ+dy64/BUtbMJw1MZ8t5HZApcHrRKUc4W0kG879m7" crossorigin="anonymous">
+    <link rel="stylesheet" href="styles.css" type="text/css">
+    <link rel="shortcut Icon" type="x-icon" href="Images/SDA Logo.jpeg">
+    
+
+  </head>
+  <style>
+    .main-heading {
+        text-align: center; /* Center horizontally */
+        color: orange;      /* Text color */
+        margin-top: 100px;  /* Push it down a bit */
+        font-size: 3rem;    /* Make it bigger */
+        font-family: 'Arial', sans-serif; /* Nice clean font */
+      }
+   </style>
+  <body>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.bundle.min.js" integrity="sha384-k6d4wzSIapyDyv1kpU366/PK5hCdSbCRGRCMv+eplOQJWyd1fbcAu9OCUj5zNLiq" crossorigin="anonymous"></script>
+    <h1 class="main-heading">Healthy Living with Adventists</h1>
+    <nav class="navbar navbar-expand-lg bg-body-tertiary">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="#">Healthy Living</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="index.html">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="HealthTips.html">HealthTips</a>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                Recipes
+              </a>
+              <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="Breakfast.html">Breakfast</a></li>
+                <li><a class="dropdown-item" href="Lunch.html">Lunch</a></li>
+                <li><a class="dropdown-item" href="Dinner.html">Dinner</a></li>
+              </ul>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="AboutUs.html">AboutUs</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="ContactUs.html">ContactUs</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="Feedback.html">Feedback</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+  
+<style>
+  /* Recipe Card Base Styles */
+  .recipe-card {
+    perspective: 1000px;
+    width: 300px;
+    height: 400px;
+    margin: 15px;
+    display: inline-block;
+    vertical-align: top;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  }
+  
+  .recipe-card-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    transition: transform 0.6s;
+    transform-style: preserve-3d;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+    border-radius: 12px;
+  }
+  
+  .recipe-card:hover .recipe-card-inner {
+    transform: rotateY(180deg);
+  }
+  
+  .recipe-card-front,
+  .recipe-card-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    border-radius: 12px;
+    overflow: hidden;
+  }
+  
+  .recipe-card-front {
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .recipe-card-back {
+    background-color: #fff;
+    transform: rotateY(180deg);
+    padding: 20px;
+    overflow-y: auto;
+  }
+  
+  .card-title-overlay {
+    padding: 20px;
+    text-align: center;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background: linear-gradient(to bottom, rgba(0,0,0,0), rgba(0,0,0,0.7));
+    color: white;
+  }
+  
+  /* Health Card Specific Styles */
+  .health-cards-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    padding: 20px;
+    max-width: 1400px;
+    margin: 0 auto;
+  }
+  
+  .bible-verse {
+    margin-top: 15px;
+    padding: 10px;
+    background-color: rgba(255,255,255,0.7);
+    border-radius: 5px;
+    font-style: italic;
+    font-size: 0.85rem;
+    text-align: center;
+  }
+  
+  .bible-verse p:last-child {
+    font-weight: bold;
+    margin-top: 5px;
+  }
+  
+  @media (max-width: 768px) {
+    .recipe-card {
+      width: 100%;
+      height: 350px;
+      margin: 10px 0;
+    }
+    
+    .health-cards-container {
+      padding: 10px;
+    }
+  }
+</style>
+</head>
+<body>
+
+<div class="health-cards-container">
+
+  <!-- 1. Plant-Based Card -->
+  <div class="recipe-card">
+    <div class="recipe-card-inner">
+      <div class="recipe-card-front" style="background: linear-gradient(rgba(0,0,0,0.1), rgba(46,125,50,0.7)), url('https://images.unsplash.com/photo-1546069901-ba9599a7e63c?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80');">
+        <div class="card-title-overlay">
+          <h3>Plant-Based Benefits</h3>
+          <p>Hover for details</p>
+        </div>
+      </div>
+      <div class="recipe-card-back" style="background-color: #E8F5E9;">
+        <div class="recipe-content">
+          <h4>🌿 Plant-Based Living</h4>
+          <ul>
+            <li>Lowers cholesterol and blood pressure</li>
+            <li>Rich in antioxidants and fiber</li>
+            <li>Reduces inflammation markers</li>
+          </ul>
+          <div class="bible-verse">
+            <p>"I give you every seed-bearing plant... for food."</p>
+            <p>- Genesis 1:29</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 2. Hydration Card -->
+  <div class="recipe-card">
+    <div class="recipe-card-inner">
+      <div class="recipe-card-front" style="background: linear-gradient(rgba(0,0,0,0.1), rgba(21,101,192,0.7)), url('https://images.unsplash.com/photo-1551269901-5c5e14c25df7?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80');">
+        <div class="card-title-overlay">
+          <h3>Water & Hydration</h3>
+          <p>Hover for details</p>
+        </div>
+      </div>
+      <div class="recipe-card-back" style="background-color: #E1F5FE;">
+        <div class="recipe-content">
+          <h4>💧 Hydration Tips</h4>
+          <ul>
+            <li>Drink 1/2 your weight in oz daily</li>
+            <li>Carry a reusable water bottle</li>
+            <li>Infuse with lemon or mint for flavor</li>
+          </ul>
+          <div class="bible-verse">
+            <p>"Whoever drinks the water I give will never thirst."</p>
+            <p>- John 4:14</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 3. Sleep Card -->
+  <div class="recipe-card">
+    <div class="recipe-card-inner">
+      <div class="recipe-card-front" style="background: linear-gradient(rgba(0,0,0,0.1), rgba(106,27,154,0.7)), url('https://images.unsplash.com/photo-1531353826977-0941b4779a1c?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80');">
+        <div class="card-title-overlay">
+          <h3>Restorative Sleep</h3>
+          <p>Hover for details</p>
+        </div>
+      </div>
+      <div class="recipe-card-back" style="background-color: #F3E5F5;">
+        <div class="recipe-content">
+          <h4>🛌 Sleep Wellness</h4>
+          <ul>
+            <li>Keep bedroom dark and cool (60-67°F)</li>
+            <li>Establish a pre-sleep routine</li>
+            <li>Limit caffeine after 2pm</li>
+          </ul>
+          <div class="bible-verse">
+            <p>"In peace I will lie down and sleep."</p>
+            <p>- Psalm 4:8</p>
+            <div class="timing-tip">
+              <strong>Not to forget</strong> Remember 
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 4. Movement Card -->
+  <div class="recipe-card">
+    <div class="recipe-card-inner">
+      <div class="recipe-card-front" style="background: linear-gradient(rgba(0,0,0,0.1), rgba(216,67,21,0.7)), url('https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80');">
+        <div class="card-title-overlay">
+          <h3>Daily Movement</h3>
+          <p>Hover for details</p>
+        </div>
+      </div>
+      <div class="recipe-card-back" style="background-color: #FFEBEE;">
+        <div class="recipe-content">
+          <h4>🏃‍♂️ Active Living</h4>
+          <ul>
+            <li>10,000 steps daily goal</li>
+            <li>Stretch every 2 hours</li>
+            <li>Try Sabbath nature walks</li>
+          </ul>
+          <div class="bible-verse">
+            <p>"Physical training is of some value."</p>
+            <p>- 1 Timothy 4:8</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 5. Stress Relief Card -->
+  <div class="recipe-card">
+    <div class="recipe-card-inner">
+      <div class="recipe-card-front" style="background: linear-gradient(rgba(0,0,0,0.1), rgba(0,96,100,0.7)), url('https://images.unsplash.com/photo-1545205597-3d9d02c29597?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80');">
+        <div class="card-title-overlay">
+          <h3>Stress Relief</h3>
+          <p>Hover for details</p>
+        </div>
+      </div>
+      <div class="recipe-card-back" style="background-color: #E0F7FA;">
+        <div class="recipe-content">
+          <h4>🧘 Stress Management</h4>
+          <ul>
+            <li>Practice deep breathing (4-7-8 method)</li>
+            <li>Keep a gratitude journal</li>
+            <li>Digital detox on Sabbath</li>
+          </ul>
+          <div class="bible-verse">
+            <p>"Cast all your anxiety on Him."</p>
+            <p>- 1 Peter 5:7</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 6. Wholistic Health Card -->
+  <div class="recipe-card">
+    <div class="recipe-card-inner">
+      <div class="recipe-card-front" style="background: linear-gradient(rgba(0,0,0,0.1), rgba(191,54,12,0.7)), url('https://images.unsplash.com/photo-1506126613408-eca07ce68773?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80');">
+        <div class="card-title-overlay">
+          <h3>Wholistic Health</h3>
+          <p>Hover for details</p>
+        </div>
+      </div>
+      <div class="recipe-card-back" style="background-color: #FBE9E7;">
+        <div class="recipe-content">
+          <h4>📖 Biblical Wellness</h4>
+          <ul>
+            <li>Your body is God's temple (1 Cor 6:19)</li>
+            <li>Practice temperance in all things</li>
+            <li>Trust in divine healing</li>
+          </ul>
+          <div class="bible-verse">
+            <p>"I pray that you may enjoy good health."</p>
+            <p>- 3 John 1:2</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+</body>
+</html>
+       
+  <!-- Footer -->
+<footer class="bg-light text-center text-lg-start mt-5">
+  <div class="container p-4">
+    <p class="text-center">
+      © 2025 Healthy Living for Adventists | Designed with ❤️ to inspire healthy and faithful living.
+    </p>
+    <p class="text-center">
+      "So whether you eat or drink or whatever you do, do it all for the glory of God." — 1 Corinthians 10:31
+    </p>
+  </div>
+</footer>
+      
+
+
+  </body>
+</html>
+  

@@ -1,0 +1,143 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Foods4theSDAs</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-SgOJa3DmI69IUzQ2PVdRZhwQ+dy64/BUtbMJw1MZ8t5HZApcHrRKUc4W0kG879m7" crossorigin="anonymous">
+    <link rel="shortcut Icon" type="x-icon" href="Images/SDA Logo.jpeg">
+  </head>
+  <style>
+    .main-heading {
+        text-align: center; /* Center horizontally */
+        color: orange;      /* Text color */
+        margin-top: 100px;  /* Push it down a bit */
+        font-size: 3rem;    /* Make it bigger */
+        font-family: 'Arial', sans-serif; /* Nice clean font */
+      }
+    </style>
+  <body>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.bundle.min.js" integrity="sha384-k6d4wzSIapyDyv1kpU366/PK5hCdSbCRGRCMv+eplOQJWyd1fbcAu9OCUj5zNLiq" crossorigin="anonymous"></script>
+    <h1 class="main-heading">Healthy Living with Adventists</h1>
+    <nav class="navbar navbar-expand-lg bg-body-tertiary">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="#">Healthy Living</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="index.html">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="HealthTips.html">HealthTips</a>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                Recipes
+              </a>
+              <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="Breakfast.html">Breakfast</a></li>
+                <li><a class="dropdown-item" href="Lunch.html">Lunch</a></li>
+                <li><a class="dropdown-item" href="Dinner.html">Dinner</a></li>
+              </ul>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="AboutUs.html">AboutUs</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="ContactUs.html">ContactUs</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="Feedback.html">Feedback</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+    <div class="container mt-5">
+      <div class="card shadow p-4">
+        <h2 class="mb-4 text-center text-success">Submit Your Recipe</h2>
+    
+        <form action="/submit-recipe" method="POST" enctype="multipart/form-data">
+          
+          <!-- Name and Surname -->
+          <div class="mb-3">
+            <label for="fullName" class="form-label">Name & Surname</label>
+            <input type="text" class="form-control" id="fullName" name="fullName" placeholder="Enter your full name" required>
+          </div>
+    
+          <!-- Email -->
+          <div class="mb-3">
+            <label for="emailAddress" class="form-label">Email Address</label>
+            <input type="email" class="form-control" id="emailAddress" name="emailAddress" placeholder="name@example.com" required>
+          </div>
+    
+          <!-- Recipe Type -->
+          <div class="mb-3">
+            <label for="recipeType" class="form-label">Type of Recipe</label>
+            <select class="form-select" id="recipeType" name="recipeType" required>
+              <option value="" selected disabled>Select type</option>
+              <option value="Breakfast">Breakfast</option>
+              <option value="Lunch">Lunch</option>
+              <option value="Dinner">Dinner</option>
+            </select>
+          </div>
+    
+          <!-- Dish Name -->
+          <div class="mb-3">
+            <label for="dishName" class="form-label">Name of the Dish</label>
+            <input type="text" class="form-control" id="dishName" name="dishName" placeholder="Enter dish name" required>
+          </div>
+    
+          <!-- Photo Upload -->
+          <div class="mb-3">
+            <label for="dishPhoto" class="form-label">Photo of the Dish</label>
+            <input class="form-control" type="file" id="dishPhoto" name="dishPhoto" accept="image/*">
+          </div>
+    
+          <!-- Ingredients -->
+          <div class="mb-3">
+            <label for="ingredients" class="form-label">Ingredients</label>
+            <textarea class="form-control" id="ingredients" name="ingredients" rows="4" placeholder="List ingredients here..." required></textarea>
+          </div>
+    
+          <!-- Instructions -->
+          <div class="mb-3">
+            <label for="instructions" class="form-label">Instructions</label>
+            <textarea class="form-control" id="instructions" name="instructions" rows="6" placeholder="Provide cooking instructions..." required></textarea>
+          </div>
+    
+          <!-- Submit Button -->
+          <div class="text-center">
+            <button type="submit" class="btn btn-success">Submit Recipe</button>
+          </div>
+    
+        </form>
+      </div>
+    </div>
+    
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    
+  
+
+ <!-- Footer -->
+<footer class="bg-light text-center text-lg-start mt-5">
+  <div class="container p-4">
+    <p class="text-center">
+      © 2025 Healthy Living for Adventists | Designed with ❤️ to inspire healthy and faithful living.
+    </p>
+    <p class="text-center">
+      "So whether you eat or drink or whatever you do, do it all for the glory of God." — 1 Corinthians 10:31
+    </p>
+  </div>
+</footer>
+
+
+
+
+  </body>
+</html>
+  
