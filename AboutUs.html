@@ -8,110 +8,152 @@
     <link rel="stylesheet" href="styles.css" type="text/css">
     <link rel="shortcut Icon" type="x-icon" href="SDA Logo.jpeg">
   
-  <style> 
-     /* Custom Navbar Style */
-     .navbar {
-      background-color: #e3f2fd;
+ <style>
+    :root {
+      --sabbath-green: #1A4D2E;
+      --sabbath-orange: #E67E22;
+      --sabbath-blue: #2980B9;
+      --sabbath-brown: #8B4513;
     }
-    .navbar-brand img {
-      height: 50px; /* Set the height of the logo */
+    body {
+      font-family: 'Arial', sans-serif;
+      color: #333;
+      line-height: 1.6;
     }
-    .nav-link {
-      margin-right: 15px;
+    .founder-section {
+      background-color: #f9f9f9;
+      border-radius: 10px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    }
+    .founder-img {
+      width: 100%;
+      height: 400px;
+      object-fit: cover;
+      border-radius: 10px 10px 0 0;
+    }
+    .founder-content {
+      padding: 30px;
+    }
+    .principle-card {
+      border-radius: 10px;
+      overflow: hidden;
+      height: 100%;
+      transition: transform 0.3s;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    }
+    .principle-card:hover {
+      transform: translateY(-10px);
+    }
+    .principle-img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+    }
+    .principle-body {
+      padding: 20px;
+    }
+    .principle-title {
+      color: var(--sabbath-green);
       font-weight: bold;
     }
-    .dropdown-menu {
-      background-color: #f8f9fa;
+    .scripture {
+      font-style: italic;
+      color: var(--sabbath-blue);
+      margin: 15px 0;
     }
-    .dropdown-item:hover {
-      background-color: #d3e0ea;
+    .header-banner {
+      background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('about-banner.jpg');
+      background-size: cover;
+      background-position: center;
+      color: white;
+      padding: 100px 0;
+      margin-bottom: 40px;
     }
-.body{ 
-      background-color: lightblue;
-}
   </style>
 </head>
+<body>
+  <!-- Header Banner -->
+  <div class="header-banner text-center">
+    <div class="container">
+      <h1><i class="fas fa-heart"></i> About Our Ministry</h1>
+      <p class="lead">Discover the faith and principles behind Adventist Healthy Living</p>
+    </div>
+  </div>
 
-  <body>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.bundle.min.js" integrity="sha384-k6d4wzSIapyDyv1kpU366/PK5hCdSbCRGRCMv+eplOQJWyd1fbcAu9OCUj5zNLiq" crossorigin="anonymous"></script>
-    <h1 class="main-heading">Healthy Living with Adventists</h1>
-    <nav class="navbar navbar-expand-lg bg-body-tertiary">
-      <div class="container-fluid">
-        <a class="navbar-brand" href="SDA Logo.jpeg">Healthy Living</a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-            <li class="nav-item">
-              <a class="nav-link active" aria-current="page" href="index.html">Home</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="HealthTips.html">HealthTips</a>
-            </li>
-            <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                Recipes
-              </a>
-              <ul class="dropdown-menu">
-                <li><a class="dropdown-item" href="Breakfast.html">Breakfast</a></li>
-                <li><a class="dropdown-item" href="Lunch.html">Lunch</a></li>
-                <li><a class="dropdown-item" href="Dinner.html">Dinner</a></li>
-              </ul>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="AboutUs.html">AboutUs</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="ContactUs.html">ContactUs</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="Feedback.html">Feedback</a>
-            </li>
-          </ul>
+  <div class="container my-5">
+    <!-- Founder Section -->
+    <div class="founder-section mb-5">
+      <img src="founder-photo.jpg" alt="Founder cooking healthy food" class="founder-img">
+      <div class="founder-content">
+        <h2 class="mb-4" style="color: var(--sabbath-green);">All About The Founder</h2>
+        <h4><b>A LITTLE GET TO KNOW ME...</b></h4>
+        <p>
+          My love for cooking started in the kitchen with my mother, where I learned an important lesson that I still cherish today — always serve a balanced meal.
+          Growing up, food was not just something we ate; it was a way of bringing our family together with care and love.
+        </p>
+        <p>
+          Originally, I was a member of the Jehovah's Witnesses. However, everything changed when I visited a Seventh-day Adventist Church in Lobatse Central with a close friend.
+          From the moment I entered, I felt a sense of belonging, like I am in my father's house indeed and purpose that I had never experienced before.
+          I knew in my heart that this was the right spiritual home for me.
+        </p>
+        <p>
+          I began dedicating my time and soul to learning more about the Seventh-day Adventist faith — studying their customs, standards of dress, and especially their teachings about health and food.
+          It was a journey of change: I adapted my diet to align with the Adventist principles of healthy, plant-based eating.
+          Even though I was the only Adventist in my family, I slowly introduced these beautiful principles into our family meals, blending tradition with a new way of life focused on health, balance, and faith. As it
+          says in <span style="font-style: italic;">1 Corinthians 10:31</span> "So whether you eat or drink or whatever you do, do it all for the glory of God." This verse always reminds me that our bodies are the temple of the Lord and we have to cherish them.
+        </p>
+        <p>
+          Through this website, I want to share with current Adventists so that they can get new meal ideas and more importantly New Adventists so that can know what to eat and what not to eat. I hope to share the joy of healthy
+          living with the rest of the world. Amen.
+        </p>
+        <p class="text-center mt-4" style="font-size: 1.2rem;">
+          <b>"Beloved, I pray that you may prosper in all things and be in health, just as your soul prospers."<br>
+          — 3 John 1:2</b>
+        </p>
+      </div>
+    </div>
+
+    <!-- Adventist Principles -->
+    <h2 class="text-center mb-5" style="color: var(--sabbath-green);">Core Adventist Principles</h2>
+    <div class="row g-4">
+      <!-- Principle 1 -->
+      <div class="col-lg-4 col-md-6">
+        <div class="principle-card">
+          <img src="" alt="Family reading Bible on Sabbath" class="principle-img">
+          <div class="principle-body">
+            <h3 class="principle-title"><i class="fas fa-star"></i> Sabbath Observance</h3>
+            <p><b>Principle:</b> The seventh day (Saturday) is the biblical Sabbath and should be kept holy as a day of rest and worship.</p>
+            <p class="scripture">"Remember the Sabbath day, to keep it holy." — Exodus 20:8</p>
+            <p><b>Practice:</b> Adventists attend church services on Saturday, avoid work or secular activities, and use the day to connect spiritually with God and family.</p>
+          </div>
         </div>
       </div>
-    </nav>
 
-    <b>A LITTLE GET TO KNOW ME...</b>
-    <br>
-    My love for cooking started in the kitchen with my mother, where I learned an important lesson that I still cherish today — always serve a balanced meal.
-    Growing up, food was not just something we ate; it was a way of bringing our family together with care and love.
-    
-    Originally, I was a member of the Jehovah’s Witnesses. However, everything changed when I visited a Seventh-day Adventist Church in Lobatse Central with a close friend.
-    From the moment I entered, I felt a sense of belonging, like I am in my father's house indeed and purpose that I had never experienced before.
-    I knew in my heart that this was the right spiritual home for me.
-    
-    I began dedicating my time and soul to learning more about the Seventh-day Adventist faith — studying their customs, standards of dress, and especially their teachings about health and food.
-    It was a journey of change: I adapted my diet to align with the Adventist principles of healthy, plant-based eating.
-    Even though I was the only Adventist in my family, I slowly introduced these beautiful principles into our family meals, blending tradition with a new way of life focused on health, balance, and faith. As it
-    says in 1 Corinthians 10:31  "So whether you eat or drink or whatever you do, do it all for the glory of God." This verse always reminds me that our bodies are the temple of the Lord and we have to cherish them.
-    
-    Through this website, I want to share with current Adventists so that they can get new meal ideas and more importantly New Adventists so that can know what to eat and what not to eat. I hope to share the joy of healthy
-    4 living with the rest of the world. Amen.
-    <br>
-    <br>
-  
-  <b>"Beloved, I pray that you may prosper in all things and be in health, just as your soul prospers."
-    — 3 John 1:2</b>
+      <!-- Principle 2 -->
+      <div class="col-lg-4 col-md-6">
+        <div class="principle-card">
+          <img src="fr" alt="Fresh plant-based foods" class="principle-img">
+          <div class="principle-body">
+            <h3 class="principle-title"><i class="fas fa-utensils"></i> Healthful Living</h3>
+            <p><b>Principle:</b> The body is God's temple and should be cared for through proper diet, rest, exercise, and abstaining from harmful substances.</p>
+            <p class="scripture">"So whether you eat or drink, or whatever you do, do it all for the glory of God." — 1 Corinthians 10:31</p>
+            <p><b>Practice:</b> Many Adventists follow a vegetarian or plant-based diet, avoid alcohol, tobacco, caffeine, and strive for balanced living.</p>
+          </div>
+        </div>
+      </div>
 
-
-
-<!-- Footer -->
-<footer class="bg-light text-center text-lg-start mt-5">
-  <div class="container p-4">
-    <p class="text-center">
-      © 2025 Healthy Living for Adventists | Designed with ❤️ to inspire healthy and faithful living.
-    </p>
-    <p class="text-center">
-      "So whether you eat or drink or whatever you do, do it all for the glory of God." — 1 Corinthians 10:31
-    </p>
+      <!-- Principle 3 -->
+      <div class="col-lg-4 col-md-6">
+        <div class="principle-card">
+          <img src="second-coming.jpg" alt="Sunrise with cross silhouette" class="principle-img">
+          <div class="principle-body">
+            <h3 class="principle-title"><i class="fas fa-cloud"></i> Second Coming of Christ</h3>
+            <p><b>Principle:</b> Jesus Christ will return soon, personally and visibly, to bring salvation to His faithful followers.</p>
+            <p class="scripture">"For the Lord Himself will descend from heaven with a shout..." — 1 Thessalonians 4:16</p>
+            <p><b>Practice:</b> Adventists live with a sense of spiritual readiness, spreading the gospel and helping others prepare for Jesus' return.</p>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
-</footer>
-
-
-  </body>
-</html>
-  
-
-  
+</body>
