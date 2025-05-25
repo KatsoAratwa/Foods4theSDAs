@@ -227,6 +227,14 @@
         .navbar-brand, .nav-link {
             color: white !important;
         }
+       
+       .dropdown-menu {
+            background-color: #E8F5E9;
+        }
+
+        .dropdown-item:hover {
+            background-color: #C8E6C9;
+        }
 
   
   
