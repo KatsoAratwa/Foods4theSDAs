@@ -209,17 +209,27 @@
         margin:0;
         max-width: 100%;
         }
+   
+         /* Main Container Styles */
+  .body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f9f9f9;
+    margin: 0;
+    padding: 0;
+        } 
 
-
-
- .main-heading {
-            text-align: center;
-            color: #2E7D32;
-            padding: 20px 0;
-            background-color: #E8F5E9;
-            margin: 0;
+     .main-heading {
+       text-align: center; /* Center horizontally */
+       color: #2E7D32;   /* Text color */
+       padding: 20px 0;
+       background-color: #E8F5E9;
+       margin: 0;
+       margin-top: 0px;  /* Push it down a bit */
+       font-size: 3rem;    /* Make it bigger */
+       font-family: 'Arial', sans-serif; /* Nice clean font */
+    
         }
-
+    
         .navbar {
             background-color: #2E7D32 !important;
         }
