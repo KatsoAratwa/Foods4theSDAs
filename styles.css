@@ -212,6 +212,21 @@
 
 
 
+ .main-heading {
+            text-align: center;
+            color: #2E7D32;
+            padding: 20px 0;
+            background-color: #E8F5E9;
+            margin: 0;
+        }
+
+        .navbar {
+            background-color: #2E7D32 !important;
+        }
+
+        .navbar-brand, .nav-link {
+            color: white !important;
+        }
 
   
   
