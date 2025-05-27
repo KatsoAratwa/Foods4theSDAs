@@ -10,285 +10,315 @@
   
 <style>
 
-    body{ 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Healthy Living with Adventists</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
       background-color: lightblue;
-}
-    
-        /* Recipes Container */
-        .recipes-container {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
-            gap: 30px;
-            max-width: 1200px;
-            margin: 30px auto;
-            padding: 20px;
-        }
+      margin: 0;
+      padding: 0;
+    }
 
-        /* Recipe Card Styles */
-        .recipe-card {
-            perspective: 1000px;
-            height: 500px;
-            border-radius: 12px;
-            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-        }
-
-        .recipe-card-inner {
-            position: relative;
-            width: 100%;
-            height: 100%;
-            transition: transform 0.6s;
-            transform-style: preserve-3d;
-        }
-
-        .recipe-card:hover .recipe-card-inner {
-            transform: rotateY(180deg);
-        }
-
-        .recipe-card-front,
-        .recipe-card-back {
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            backface-visibility: hidden;
-            border-radius: 12px;
-            overflow: hidden;
-        }
-
-        .recipe-card-front {
-            background-color: #fff;
-        }
-
-        .recipe-card-back {
-            background-color: #f5f5f5;
-            transform: rotateY(180deg);
-            padding: 20px;
-            overflow-y: auto;
-        }
-
-        .card-img {
-            width: 100%;
-            height: 250px;
-            object-fit: cover;
-        }
-
-        .card-title-overlay {
-            padding: 15px;
-            text-align: center;
-            background-color: #2E7D32;
-            color: white;
-            margin: 0;
-            font-size: 1.3rem;
-            position: relative;
-        }
-
-        .vegan-badge, .badge {
-            position: absolute;
-            top: 15px;
-            right: 15px;
-            background: #4CAF50;
-            color: white;
-            padding: 3px 10px;
-            border-radius: 20px;
-            font-size: 0.8rem;
-            font-weight: bold;
-        }
-
-        .health-badge {
-            background: #388E3C;
-        }
-        /* Custom Navbar Style */
+    /* Navbar Style */
     .navbar {
       display: flex;
-      height: 80px; /* Adjust this to match your logo height */
-      background-color: #2E7D32; /* Adventist green */
-      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+      height: 80px;
+      background-color: #2E7D32;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
       position: sticky;
       top: 0;
       z-index: 100;
-     }
+    }
 
-        .recipe-meta {
-            display: flex;
-            justify-content: space-around;
-            padding: 10px;
-            background-color: #1B5E20;
-            color: #ffffff;
-            font-weight: bold;
-        }
+    /* Recipes Container */
+    .recipes-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+      gap: 30px;
+      max-width: 1200px;
+      margin: 30px auto;
+      padding: 20px;
+    }
 
-        .recipe-content h3 {
-            color: #2E7D32;
-            margin-top: 0;
-            font-size: 1.3rem;
-            border-bottom: 2px solid #C8E6C9;
-            padding-bottom: 5px;
-        }
+    /* Recipe Card Styles */
+    .recipe-card {
+      perspective: 1000px;
+      height: 500px;
+      border-radius: 12px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
 
-        .recipe-content h4 {
-            color: #2E7D32;
-            margin: 15px 0 10px 0;
-            border-bottom: 2px solid #C8E6C9;
-            padding-bottom: 5px;
-        }
+    .recipe-card-inner {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      transition: transform 0.8s ease-in-out;
+      transform-style: preserve-3d;
+    }
 
-        .recipe-content ul, .recipe-content ol {
-            padding-left: 20px;
-        }
+    .recipe-card:hover .recipe-card-inner {
+      transform: rotateY(180deg);
+    }
 
-        .recipe-content li {
-            margin-bottom: 8px;
-            line-height: 1.4;
-        }
+    .recipe-card-front,
+    .recipe-card-back {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      backface-visibility: hidden;
+      border-radius: 12px;
+      overflow: hidden;
+    }
 
-        .recipe-tip, .nutrition-tip, .alternative-tip, 
-        .storage-tip, .variation-tip, .timing-tip {
-            background-color: #E8F5E9;
-            padding: 10px;
-            border-left: 4px solid #4CAF50;
-            margin-top: 15px;
-            font-size: 0.9rem;
-            border-radius: 0 5px 5px 0;
-        }
+    .recipe-card-front {
+      background-color: #fff;
+    }
 
-        .chef-tip {
-            background-color: #FFF9C4;
-            padding: 10px;
-            border-left: 4px solid #FFD54F;
-            margin-top: 15px;
-            font-size: 0.9rem;
-            border-radius: 0 5px 5px 0;
-        }
+    .recipe-card-back {
+      background-color: #f5f5f5;
+      transform: rotateY(180deg);
+      padding: 20px;
+      overflow-y: auto;
+    }
 
-        /* Responsive Design */
-        @media (max-width: 1000px) {
-            .recipes-container {
-                grid-template-columns: repeat(2, 1fr);
-            }
-        }
+    .card-img {
+      width: 100%;
+      height: 250px;
+      object-fit: cover;
+    }
 
-        @media (max-width: 600px) {
-            .recipes-container {
-                grid-template-columns: 1fr;
-            }
-            
-            .recipe-card {
-                height: auto;
-                min-height: 500px;
-            }
-        }
-        body{ background-color: lightblue;
-        }
+    .card-title-overlay {
+      padding: 15px;
+      text-align: center;
+      background-color: #2E7D32;
+      color: white;
+      margin: 0;
+      font-size: 1.3rem;
+    }
 
-    </style>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css" rel="stylesheet">
-  </head> 
+    .vegan-badge,
+    .badge {
+      position: absolute;
+      top: 15px;
+      right: 15px;
+      background: #4CAF50;
+      color: white;
+      padding: 3px 10px;
+      border-radius: 20px;
+      font-size: 0.8rem;
+      font-weight: bold;
+    }
+
+    .health-badge {
+      background: #388E3C;
+    }
+
+    .recipe-meta {
+      display: flex;
+      justify-content: space-around;
+      padding: 10px;
+      background-color: #1B5E20;
+      color: #ffffff;
+      font-weight: bold;
+    }
+
+    .recipe-content h3 {
+      color: #2E7D32;
+      margin-top: 0;
+      font-size: 1.3rem;
+      border-bottom: 2px solid #C8E6C9;
+      padding-bottom: 5px;
+    }
+
+    .recipe-content h4 {
+      color: #2E7D32;
+      margin: 15px 0 10px 0;
+      border-bottom: 2px solid #C8E6C9;
+      padding-bottom: 5px;
+    }
+
+    .recipe-content ul,
+    .recipe-content ol {
+      padding-left: 20px;
+    }
+
+    .recipe-content li {
+      margin-bottom: 8px;
+      line-height: 1.4;
+    }
+
+    .recipe-tip,
+    .nutrition-tip,
+    .alternative-tip,
+    .storage-tip,
+    .variation-tip,
+    .timing-tip {
+      background-color: #E8F5E9;
+      padding: 10px;
+      border-left: 4px solid #4CAF50;
+      margin-top: 15px;
+      font-size: 0.9rem;
+      border-radius: 0 5px 5px 0;
+    }
+
+    .chef-tip {
+      background-color: #FFF9C4;
+      padding: 10px;
+      border-left: 4px solid #FFD54F;
+      margin-top: 15px;
+      font-size: 0.9rem;
+      border-radius: 0 5px 5px 0;
+    }
+
+    /* Responsive Design */
+    @media (max-width: 1000px) {
+      .recipes-container {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 600px) {
+      .recipes-container {
+        grid-template-columns: 1fr;
+      }
+
+      .recipe-card {
+        height: auto;
+        min-height: 500px;
+      }
+    }
+  </style>
+</head>
 
 <body>
-    <h1 class="main-heading">Healthy Living with Adventists</h1>
-    <nav class="navbar navbar-expand-lg bg-body-tertiary">
-        <div class="container-fluid">
-            <a class="navbar-brand" href="Breakfast.html"><Healthy Living>
-            <img src="SDA Logo.jpeg" class="img-fluid" alt="SDA logo" height="50"></a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                    <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="index.html">Home</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="HealthTips.html">HealthTips</a>
-                    </li>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                            Recipes
-                        </a>
-                        <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="Breakfast.html">Breakfast</a></li>
-                            <li><a class="dropdown-item" href="Lunch.html">Lunch</a></li>
-                            <li><a class="dropdown-item" href="Dinner.html">Dinner</a></li>
-                        </ul>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="AboutUs.html">AboutUs</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="ContactUs.html">ContactUs</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="Feedback.html">Feedback</a>
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </nav>
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css" rel="stylesheet">
+  <h1 class="text-center py-4 text-success">Healthy Living with Adventists</h1>
 
-    <div class="recipes-container">
-        <!-- Recipe 1 -->
-        <div class="recipe-card">
-            <div class="recipe-card-inner">
-                <div class="recipe-card-front">
-                    <img src="Toast with roasted potatoes, scrambled eggs and garden salad.jpg" alt="Roasted baby potatoes with scrambled eggs, toasted bread and a garden salad" class="card-img">
-                    <div class="card-title-overlay">
-                        <h3>Roasted Potatoes with Eggs</h3>
-                    </div>
-                </div>
-                <div class="recipe-card-back">
-                    <div class="recipe-content">
-                        <h3>Roasted Potatoes with Scrambled Eggs</h3>
-                        <div class="recipe-meta">
-                            <span><strong>Serves:</strong> 2</span>
-                            <span><strong>Prep:</strong> 10 mins</span>
-                            <span><strong>Cook:</strong> 25 mins</span>
-                        </div>
-                        <div class="recipe-details">
-                            <div class="ingredients">
-                                <h4>Ingredients:</h4>
-                                <h5>Roasted Potatoes:</h5>
-                                <ul>
-                                    <li>1 cup baby potatoes, halved</li>
-                                    <li>1 tbsp olive oil</li>
-                                    <li>½ tsp garlic powder</li>
-                                    <li>½ tsp paprika</li>
-                                    <li>Salt & pepper to taste</li>
-                                </ul>
-                                <h5>Scrambled Eggs:</h5>
-                                <ul>
-                                    <li>2 eggs</li>
-                                    <li>1 tbsp butter or oil</li>
-                                    <li>2 tbsp milk (optional)</li>
-                                    <li>Salt & pepper to taste</li>
-                                </ul>
-                                <h5>Toast:</h5>
-                                <ul>
-                                    <li>2 slices of bread</li>
-                                    <li>Butter (optional)</li>
-                                </ul>
-                                <h5>Garden Salad:</h5>
-                                <ul>
-                                    <li>1 cup mixed lettuce</li>
-                                    <li>½ cup cherry tomatoes</li>
-                                    <li>¼ cup pomegranate seeds</li>
-                                    <li>2 tbsp salad dressing</li>
-                                </ul>
-                            </div>
-                            <div class="instructions">
-                                <h4>Instructions:</h4>
-                                <ol>
-                                    <li><strong>Roast Potatoes:</strong> Preheat oven to 400°F. Toss potatoes with oil and spices. Roast for 20-25 mins, flipping halfway.</li>
-                                    <li><strong>Prepare Salad:</strong> Combine lettuce, tomatoes, and pomegranate seeds. Add dressing just before serving.</li>
-                                    <li><strong>Scramble Eggs:</strong> Whisk eggs with milk, salt and pepper. Cook in butter over medium heat for 2-3 mins.</li>
-                                    <li><strong>Toast Bread:</strong> Toast until golden. Butter if desired.</li>
-                                    <li><strong>Assemble & Serve:</strong> Plate eggs, potatoes, toast and salad together.</li>
-                                </ol>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+  <nav class="navbar navbar-expand-lg">
+    <div class="container-fluid">
+      <a class="navbar-brand d-flex align-items-center" href="Breakfast.html">
+        <img src="SDA Logo.jpeg" alt="SDA logo" height="50" class="me-2" />
+        <span class="text-white">Healthy Living</span>
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+        data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+        aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link text-white" href="index.html">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link text-white" href="HealthTips.html">Health Tips</a>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle text-white" href="#" role="button" data-bs-toggle="dropdown"
+              aria-expanded="false">
+              Recipes
+            </a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="Breakfast.html">Breakfast</a></li>
+              <li><a class="dropdown-item" href="Lunch.html">Lunch</a></li>
+              <li><a class="dropdown-item" href="Dinner.html">Dinner</a></li>
+            </ul>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link text-white" href="AboutUs.html">About Us</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link text-white" href="ContactUs.html">Contact Us</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link text-white" href="Feedback.html">Feedback</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <div class="recipes-container">
+    <!-- Recipe 1 -->
+    <div class="recipe-card">
+      <div class="recipe-card-inner">
+        <div class="recipe-card-front">
+          <img src="Toast with roasted potatoes, scrambled eggs and garden salad.jpg"
+            alt="Roasted baby potatoes with scrambled eggs, toasted bread and a garden salad" class="card-img">
+          <div class="card-title-overlay">
+            <h3>Roasted Potatoes with Eggs</h3>
+          </div>
         </div>
+        <div class="recipe-card-back">
+          <div class="recipe-content">
+            <h3>Roasted Potatoes with Scrambled Eggs</h3>
+            <div class="recipe-meta">
+              <span><strong>Serves:</strong> 2</span>
+              <span><strong>Prep:</strong> 10 mins</span>
+              <span><strong>Cook:</strong> 25 mins</span>
+            </div>
+            <div class="recipe-details">
+              <div class="ingredients">
+                <h4>Ingredients:</h4>
+                <h5>Roasted Potatoes:</h5>
+                <ul>
+                  <li>1 cup baby potatoes, halved</li>
+                  <li>1 tbsp olive oil</li>
+                  <li>½ tsp garlic powder</li>
+                  <li>½ tsp paprika</li>
+                  <li>Salt & pepper to taste</li>
+                </ul>
+                <h5>Scrambled Eggs:</h5>
+                <ul>
+                  <li>2 eggs</li>
+                  <li>1 tbsp butter or oil</li>
+                  <li>2 tbsp milk (optional)</li>
+                  <li>Salt & pepper to taste</li>
+                </ul>
+                <h5>Toast:</h5>
+                <ul>
+                  <li>2 slices of bread</li>
+                  <li>Butter (optional)</li>
+                </ul>
+                <h5>Garden Salad:</h5>
+                <ul>
+                  <li>1 cup mixed lettuce</li>
+                  <li>½ cup cherry tomatoes</li>
+                  <li>¼ cup pomegranate seeds</li>
+                  <li>2 tbsp salad dressing</li>
+                </ul>
+              </div>
+              <div class="instructions">
+                <h4>Instructions:</h4>
+                <ol>
+                  <li><strong>Roast Potatoes:</strong> Preheat oven to 400°F. Toss potatoes with oil and spices. Roast
+                    for 20–25 mins, flipping halfway.</li>
+                  <li><strong>Prepare Salad:</strong> Combine lettuce, tomatoes, and pomegranate seeds. Add dressing just
+                    before serving.</li>
+                  <li><strong>Scramble Eggs:</strong> Whisk eggs with milk, salt and pepper. Cook in butter over medium
+                    heat for 2–3 mins.</li>
+                  <li><strong>Toast Bread:</strong> Toast until golden. Butter if desired.</li>
+                  <li><strong>Assemble & Serve:</strong> Plate eggs, potatoes, toast and salad together.</li>
+                </ol>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Add more recipe cards here -->
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
+
 
         <!-- Recipe 2 -->
         <div class="recipe-card">
