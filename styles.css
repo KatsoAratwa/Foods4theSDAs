@@ -11,11 +11,11 @@
   }
   /* Footer Styling */
 .custom-footer {
-    background-color: #21324383; /* Light grey background */
+    background-color: #2E7D32; /* Light grey background */
     padding: 30px 0;           /* Top and bottom padding */
     text-align: center;        /* Center all text */
     font-size: 16px;           /* Font size */
-    color: #ffffff;               /* Text color (dark grey) */
+    color: #ffffff;               /* Text color (white) */
     margin-top: 50px;          /* Space above the footer */
     border-top: 1px solid #ddd; /* Optional: light border on top */
   }
