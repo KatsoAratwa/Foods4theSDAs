@@ -1,17 +1,29 @@
-<!doctype html>
+ <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Foods4theSDAs</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-SgOJa3DmI69IUzQ2PVdRZhwQ+dy64/BUtbMJw1MZ8t5HZApcHrRKUc4W0kG879m7" crossorigin="anonymous">
     <link rel="stylesheet" href="styles.css" type="text/css">
     <link rel="icon" type="image/jpeg" href="SDA Logo.jpeg">
-  <style>
-      body {
-        overflow-x:hidden;
-        background-color: lightblue;
-         }
+    <style>
+        /* Main Container Styles */
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f9f9f9;
+            margin: 0;
+            padding: 20px;
+        }
+
+        .recipes-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 30px;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
 
         /* Recipe Card Styles */
         .recipe-card {
@@ -25,7 +37,7 @@
             position: relative;
             width: 100%;
             height: 100%;
-            transition: transform 0.6s ease-in-out, background-color 0.3s ease;
+            transition: transform 0.6s;
             transform-style: preserve-3d;
         }
 
@@ -94,49 +106,37 @@
             line-height: 1.4;
         }
 
-      .recipes-container {
-        display: grid;
-        grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
-        gap: 30px;
-        max-width: 1200px;
-        margin: 0 auto;
-        padding: 20px;
-      }
+        .vegan-tag {
+            background-color: #4CAF50;
+            color: white;
+            padding: 3px 10px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            display: inline-block;
+            margin-left: 10px;
+        }
 
-      .vegan-tag {
-        background-color: #4CAF50;
-        color: white;
-        padding: 3px 10px;
-        border-radius: 20px;
-        font-size: 0.8rem;
-        display: inline-block;
-        margin-left: 10px;
-      }
+        .alternative-tip {
+            background-color: #FFF9C4;
+            padding: 10px;
+            border-left: 4px solid #FFD54F;
+            margin-top: 15px;
+            font-size: 0.9rem;
+            border-radius: 0 5px 5px 0;
+        }
 
-      .alternative-tip {
-        background-color: #FFF9C4;
-        padding: 10px;
-        border-left: 4px solid #FFD54F;
-        margin-top: 15px;
-        font-size: 0.9rem;
-        border-radius: 0 5px 5px 0;
-      }
-
-      /* Responsive Design */
-      @media (max-width: 768px) {
-        .recipes-container {
-          grid-template-columns: 1fr;
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .recipes-container {
+                grid-template-columns: 1fr;
+            }
+            
+            .recipe-card {
+                height: auto;
+                min-height: 500px;
+            }
         }
         
-        .recipe-card {
-          height: auto;
-          min-height: 500px;
-        }
-        .recipe-card-inner {
-          height: 100%;
-        } 
-      }
-      
       .custom-footer {
         background-color:#2E7D32; /* Light grey background */
         padding: 30px 0;           /* Top and bottom padding */
@@ -150,15 +150,25 @@
       .custom-footer p {
         margin: 5px 0;  /* Space between paragraphs */
       }
+
+      /* Navbar Style */
+    .navbar {
+      display: flex;
+      height: 80px;
+      background-color: #2E7D32;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
     </style>
-  </head>
-    
-  <body>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.bundle.min.js" integrity="sha384-k6d4wzSIapyDyv1kpU366/PK5hCdSbCRGRCMv+eplOQJWyd1fbcAu9OCUj5zNLiq" crossorigin="anonymous"></script>
+</head>
+<body>
+ <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.bundle.min.js" integrity="sha384-k6d4wzSIapyDyv1kpU366/PK5hCdSbCRGRCMv+eplOQJWyd1fbcAu9OCUj5zNLiq" crossorigin="anonymous"></script>
     <h1 class="main-heading">Healthy Living with Adventists</h1>
     <nav class="navbar navbar-expand-lg">
       <div class="container-fluid">
-        <a class="navbar-brand d-flex align-items-center" href="Dinner.html">
+        <a class="navbar-brand d-flex align-items-center" href="Lunch.html">
           <img src="SDA Logo.jpeg" alt="SDA logo" height="50" class="me-2" />
           <span class="text-white">Healthy Living</span> </a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
@@ -199,631 +209,589 @@
     </nav>
 
     <div class="recipes-container">
+
         <!-- Recipe 1 -->
         <div class="recipe-card">
             <div class="recipe-card-inner">
                 <div class="recipe-card-front">
-                    <img src="lentil shepards pie.jpeg" alt="Lentil Shepherd's Pie" class="recipe-image">
-                    <h3 class="recipe-title">Lentil Shepherd's Pie</h3>
+                    <img src="lentil walnut loaf.jpeg" alt="Lentil Walnut Loaf" class="recipe-image">
+                    <h3 class="recipe-title">Lentil Walnut Loaf <span class="vegan-tag">Vegan</span></h3>
+                    <div class="recipe-meta">
+                        <span>Prep: 15 mins</span>
+                        <span>Cook: 60 mins</span>
+                        <span>Serves: 6</span>
+                    </div>
                 </div>
                 <div class="recipe-card-back">
-                    <span class="cooking-time">⏱ 1 hour 15 minutes</span>
-                    <h4 class="section-title">Ingredients:</h4>
-                    <ul>
-                        <li>1 cup dried green or brown lentils</li>
-                        <li>2 cups vegetable broth</li>
-                        <li>1 onion, diced</li>
-                        <li>2 carrots, diced</li>
-                        <li>2 celery stalks, diced</li>
-                        <li>2 cloves garlic, minced</li>
-                        <li>1 tsp thyme</li>
-                        <li>1 tsp rosemary</li>
-                        <li>2 tbsp tomato paste</li>
-                        <li>1 cup frozen peas</li>
-                        <li>4 large potatoes, peeled and cubed</li>
-                        <li>1/4 cup plant-based milk</li>
-                        <li>2 tbsp vegan butter</li>
-                        <li>Salt and pepper to taste</li>
-                    </ul>
-                    <h4 class="section-title">Instructions:</h4>
-                    <ol>
-                        <li>Cook lentils in vegetable broth until tender (about 25 minutes). Drain excess liquid.</li>
-                        <li>Meanwhile, boil potatoes until soft. Mash with plant milk, vegan butter, salt, and pepper.</li>
-                        <li>Sauté onion, carrots, and celery until soft. Add garlic, herbs, and tomato paste.</li>
-                        <li>Combine cooked lentils and vegetable mixture. Stir in peas.</li>
-                        <li>Spread lentil mixture in baking dish, top with mashed potatoes.</li>
-                        <li>Bake at 375°F (190°C) for 25-30 minutes until golden.</li>
-                    </ol>
-                    <div class="alternative-tip">
-                        <strong>Alternatives:</strong> Use sweet potatoes instead of regular potatoes for topping. Add mushrooms for extra umami flavor.
+                    <div class="recipe-content">
+                        <h4>Ingredients</h4>
+                        <ul>
+                            <li>1 cup dry green lentils</li>
+                            <li>1 cup walnuts, finely chopped</li>
+                            <li>1 onion, diced</li>
+                            <li>2 cloves garlic, minced</li>
+                            <li>1 cup rolled oats</li>
+                            <li>2 tbsp tomato paste</li>
+                            <li>1 tbsp soy sauce</li>
+                            <li>1 tsp thyme</li>
+                        </ul>
+                        <h4>Instructions</h4>
+                        <ol>
+                            <li>Cook lentils until tender (about 25 mins), drain</li>
+                            <li>Sauté onion and garlic until soft</li>
+                            <li>Combine all ingredients in bowl, mix well</li>
+                            <li>Press into greased loaf pan</li>
+                            <li>Bake at 375°F (190°C) for 45 mins</li>
+                        </ol>
+                        <div class="alternative-tip">
+                            <strong>Alternative:</strong> Replace walnuts with sunflower seeds for nut-free version
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-        
+
         <!-- Recipe 2 -->
         <div class="recipe-card">
             <div class="recipe-card-inner">
                 <div class="recipe-card-front">
-                    <img src="quinoa bells dinner.jpeg" alt="Quinoa Stuffed Bell Peppers" class="recipe-image">
-                    <h3 class="recipe-title">Quinoa Stuffed Bell Peppers</h3>
+                    <img src="Avocado Stuffed Quinoa Salad {Vegetarian}….jpeg" alt="Quinoa Stuffed Bell Peppers" class="recipe-image">
+                    <h3 class="recipe-title">Quinoa Stuffed Peppers <span class="vegan-tag">Vegan</span></h3>
+                    <div class="recipe-meta">
+                        <span>Prep: 20 mins</span>
+                        <span>Cook: 30 mins</span>
+                        <span>Serves: 4</span>
+                    </div>
                 </div>
                 <div class="recipe-card-back">
-                    <span class="cooking-time">⏱ 50 minutes</span>
-                    <h4 class="section-title">Ingredients:</h4>
-                    <ul>
-                        <li>4 large bell peppers</li>
-                        <li>1 cup quinoa, rinsed</li>
-                        <li>2 cups vegetable broth</li>
-                        <li>1 small onion, diced</li>
-                        <li>2 cloves garlic, minced</li>
-                        <li>1 zucchini, diced</li>
-                        <li>1 can (15 oz) black beans, drained</li>
-                        <li>1 cup corn kernels</li>
-                        <li>1 tsp cumin</li>
-                        <li>1 tsp chili powder</li>
-                        <li>1/2 cup vegan cheese (optional)</li>
-                        <li>Fresh cilantro for garnish</li>
-                    </ul>
-                    <h4 class="section-title">Instructions:</h4>
-                    <ol>
-                        <li>Preheat oven to 375°F (190°C). Cut tops off peppers and remove seeds.</li>
-                        <li>Cook quinoa in vegetable broth according to package directions.</li>
-                        <li>Sauté onion and garlic until soft. Add zucchini and cook 3 minutes.</li>
-                        <li>Mix cooked quinoa, sautéed vegetables, black beans, corn, and spices.</li>
-                        <li>Stuff peppers with mixture. Place in baking dish with 1/2 inch water.</li>
-                        <li>Bake 25-30 minutes. Add vegan cheese last 5 minutes if using.</li>
-                        <li>Garnish with fresh cilantro before serving.</li>
-                    </ol>
-                    <div class="alternative-tip">
-                        <strong>Alternatives:</strong> Use brown rice instead of quinoa. Add diced tomatoes or salsa to the filling.
+                    <div class="recipe-content">
+                        <h4>Ingredients</h4>
+                        <ul>
+                            <li>4 large bell peppers</li>
+                            <li>1 cup quinoa, cooked</li>
+                            <li>1 can black beans, drained</li>
+                            <li>1 cup corn kernels</li>
+                            <li>1 tsp cumin</li>
+                            <li>1/2 cup salsa</li>
+                            <li>1 avocado (for serving)</li>
+                        </ul>
+                        <h4>Instructions</h4>
+                        <ol>
+                            <li>Cut tops off peppers and remove seeds</li>
+                            <li>Mix quinoa, beans, corn, cumin and salsa</li>
+                            <li>Stuff peppers with mixture</li>
+                            <li>Bake at 375°F (190°C) for 25-30 mins</li>
+                            <li>Top with avocado slices before serving</li>
+                        </ol>
                     </div>
                 </div>
             </div>
         </div>
-        
+
         <!-- Recipe 3 -->
         <div class="recipe-card">
             <div class="recipe-card-inner">
                 <div class="recipe-card-front">
-                    <img src="chickpea curry.jpeg" alt="Chickpea Curry" class="recipe-image">
-                    <h3 class="recipe-title">Chickpea Curry</h3>
+                    <img src="Vegetable Lasagna.jpeg" alt="Vegetable Lasagna" class="recipe-image">
+                    <h3 class="recipe-title">Vegetable Lasagna</h3>
+                    <div class="recipe-meta">
+                        <span>Prep: 30 mins</span>
+                        <span>Cook: 45 mins</span>
+                        <span>Serves: 8</span>
+                    </div>
                 </div>
                 <div class="recipe-card-back">
-                    <span class="cooking-time">⏱ 35 minutes</span>
-                    <h4 class="section-title">Ingredients:</h4>
-                    <ul>
-                        <li>2 cans (15 oz each) chickpeas, drained</li>
-                        <li>1 onion, diced</li>
-                        <li>3 cloves garlic, minced</li>
-                        <li>1 tbsp fresh ginger, grated</li>
-                        <li>1 can (14 oz) coconut milk</li>
-                        <li>1 can (14 oz) diced tomatoes</li>
-                        <li>2 tsp curry powder</li>
-                        <li>1 tsp turmeric</li>
-                        <li>1 tsp cumin</li>
-                        <li>1/2 tsp cayenne (optional)</li>
-                        <li>2 cups fresh spinach</li>
-                        <li>Fresh cilantro for garnish</li>
-                        <li>Cooked brown rice for serving</li>
-                    </ul>
-                    <h4 class="section-title">Instructions:</h4>
-                    <ol>
-                        <li>Sauté onion until translucent. Add garlic and ginger, cook 1 minute.</li>
-                        <li>Add spices and stir for 30 seconds until fragrant.</li>
-                        <li>Pour in coconut milk and tomatoes. Bring to simmer.</li>
-                        <li>Add chickpeas and simmer 15-20 minutes.</li>
-                        <li>Stir in spinach until wilted.</li>
-                        <li>Serve over brown rice, garnished with cilantro.</li>
-                    </ol>
-                    <div class="alternative-tip">
-                        <strong>Alternatives:</strong> Use sweet potatoes or cauliflower as additional vegetables. For creamier texture, blend 1/2 cup of chickpeas before adding.
+                    <div class="recipe-content">
+                        <h4>Ingredients</h4>
+                        <ul>
+                            <li>9 lasagna noodles</li>
+                            <li>2 cups ricotta cheese (or tofu ricotta)</li>
+                            <li>2 cups spinach, chopped</li>
+                            <li>1 zucchini, sliced</li>
+                            <li>1 eggplant, sliced</li>
+                            <li>3 cups marinara sauce</li>
+                            <li>1 cup mozzarella (optional)</li>
+                        </ul>
+                        <h4>Instructions</h4>
+                        <ol>
+                            <li>Cook noodles according to package</li>
+                            <li>Layer noodles, ricotta, vegetables and sauce</li>
+                            <li>Repeat layers, ending with sauce</li>
+                            <li>Top with mozzarella if using</li>
+                            <li>Bake covered at 375°F (190°C) for 40 mins</li>
+                            <li>Uncover and bake 5 more mins</li>
+                        </ol>
+                        <div class="alternative-tip">
+                            <strong>Vegan Option:</strong> Use tofu ricotta and vegan cheese
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-        
+
         <!-- Recipe 4 -->
         <div class="recipe-card">
             <div class="recipe-card-inner">
                 <div class="recipe-card-front">
-                    <img src="Hearty Vegetarian Lasagna Made for Comfort and….jpeg" alt="Vegetable Lasagna" class="recipe-image">
-                    <h3 class="recipe-title">Vegetable Lasagna</h3>
+                    <img src="CHICKPEA SANDWICH🥪.jpeg" alt="Chickpea Salad Sandwich" class="recipe-image">
+                    <h3 class="recipe-title">Chickpea Salad Sandwich <span class="vegan-tag">Vegan</span></h3>
+                    <div class="recipe-meta">
+                        <span>Prep: 15 mins</span>
+                        <span>Cook: 0 mins</span>
+                        <span>Serves: 4</span>
+                    </div>
                 </div>
                 <div class="recipe-card-back">
-                    <span class="cooking-time">⏱ 1 hour 30 minutes</span>
-                    <h4 class="section-title">Ingredients:</h4>
-                    <ul>
-                        <li>9 lasagna noodles (whole wheat or gluten-free)</li>
-                        <li>2 cups marinara sauce</li>
-                        <li>1 zucchini, thinly sliced</li>
-                        <li>1 eggplant, thinly sliced</li>
-                        <li>1 red bell pepper, diced</li>
-                        <li>2 cups spinach</li>
-                        <li>15 oz ricotta cheese (or vegan ricotta)</li>
-                        <li>1 egg (or flax egg for vegan)</li>
-                        <li>1/4 cup fresh basil, chopped</li>
-                        <li>2 cups shredded mozzarella (or vegan cheese)</li>
-                        <li>1/4 cup nutritional yeast (optional)</li>
-                    </ul>
-                    <h4 class="section-title">Instructions:</h4>
-                    <ol>
-                        <li>Preheat oven to 375°F (190°C). Cook noodles according to package.</li>
-                        <li>Mix ricotta with egg (or flax egg), basil, and half the nutritional yeast.</li>
-                        <li>Spread 1/2 cup marinara in 9x13 baking dish. Layer 3 noodles.</li>
-                        <li>Add half the ricotta mixture, then half the vegetables.</li>
-                        <li>Repeat layers: sauce, noodles, ricotta, vegetables.</li>
-                        <li>Top with final noodles, remaining sauce, and mozzarella.</li>
-                        <li>Cover with foil, bake 30 minutes. Uncover, bake 15 more minutes.</li>
-                        <li>Let rest 10 minutes before serving.</li>
-                    </ol>
-                    <div class="alternative-tip">
-                        <strong>Alternatives:</strong> Use sliced mushrooms or butternut squash instead of eggplant. For vegan version, use cashew ricotta.
+                    <div class="recipe-content">
+                        <h4>Ingredients</h4>
+                        <ul>
+                            <li>2 cans chickpeas, drained</li>
+                            <li>1/4 cup vegan mayo</li>
+                            <li>1 stalk celery, diced</li>
+                            <li>2 green onions, chopped</li>
+                            <li>1 tsp Dijon mustard</li>
+                            <li>1/2 tsp paprika</li>
+                            <li>8 slices whole grain bread</li>
+                            <li>Lettuce and tomato for serving</li>
+                        </ul>
+                        <h4>Instructions</h4>
+                        <ol>
+                            <li>Mash chickpeas with fork or potato masher</li>
+                            <li>Mix with all other ingredients except bread</li>
+                            <li>Season with salt and pepper to taste</li>
+                            <li>Serve on bread with lettuce and tomato</li>
+                        </ol>
                     </div>
                 </div>
             </div>
         </div>
-        
+
         <!-- Recipe 5 -->
         <div class="recipe-card">
             <div class="recipe-card-inner">
                 <div class="recipe-card-front">
-                    <img src="black bean burger.jpeg" alt="Black Bean Burgers" class="recipe-image">
-                    <h3 class="recipe-title">Black Bean Burgers</h3>
+                    <img src="black bean burger.jpeg" alt="Sweet Potato Black Bean Burgers" class="recipe-image">
+                    <h3 class="recipe-title">Sweet Potato Burgers <span class="vegan-tag">Vegan</span></h3>
+                    <div class="recipe-meta">
+                        <span>Prep: 20 mins</span>
+                        <span>Cook: 25 mins</span>
+                        <span>Serves: 6</span>
+                    </div>
                 </div>
                 <div class="recipe-card-back">
-                    <span class="cooking-time">⏱ 30 minutes</span>
-                    <h4 class="section-title">Ingredients:</h4>
-                    <ul>
-                        <li>2 cans (15 oz each) black beans, drained and rinsed</li>
-                        <li>1/2 cup breadcrumbs (or oat flour for gluten-free)</li>
-                        <li>1/4 cup finely diced onion</li>
-                        <li>1/4 cup finely diced bell pepper</li>
-                        <li>2 cloves garlic, minced</li>
-                        <li>1 tbsp ground flax + 3 tbsp water</li>
-                        <li>1 tsp cumin</li>
-                        <li>1 tsp smoked paprika</li>
-                        <li>1/2 tsp chili powder</li>
-                        <li>Salt and pepper to taste</li>
-                        <li>Whole grain buns and toppings of choice</li>
-                    </ul>
-                    <h4 class="section-title">Instructions:</h4>
-                    <ol>
-                        <li>Mix flax and water, set aside to thicken (flax egg).</li>
-                        <li>Mash black beans in large bowl, leaving some texture.</li>
-                        <li>Add all other ingredients including flax egg, mix well.</li>
-                        <li>Form into 6 patties. If too wet, add more breadcrumbs.</li>
-                        <li>Cook in lightly oiled skillet over medium heat 4-5 minutes per side.</li>
-                        <li>Alternatively, bake at 375°F (190°C) for 20 minutes, flipping halfway.</li>
-                        <li>Serve on buns with lettuce, tomato, avocado, etc.</li>
-                    </ol>
-                    <div class="alternative-tip">
-                        <strong>Alternatives:</strong> Use pinto beans instead of black beans. Add 1/4 cup corn kernels for sweetness. For nutty flavor, add 2 tbsp sunflower seeds.
+                    <div class="recipe-content">
+                        <h4>Ingredients</h4>
+                        <ul>
+                            <li>2 cups mashed sweet potato</li>
+                            <li>1 can black beans, drained</li>
+                            <li>1/2 cup breadcrumbs</li>
+                            <li>1 tsp cumin</li>
+                            <li>1/2 tsp smoked paprika</li>
+                            <li>1 tbsp olive oil</li>
+                            <li>6 whole wheat buns</li>
+                        </ul>
+                        <h4>Instructions</h4>
+                        <ol>
+                            <li>Mash beans with sweet potato</li>
+                            <li>Add spices and breadcrumbs, mix well</li>
+                            <li>Form into 6 patties</li>
+                            <li>Chill for 30 mins (optional but helps firm up)</li>
+                            <li>Cook in oiled pan 5-6 mins per side</li>
+                            <li>Serve on buns with favorite toppings</li>
+                        </ol>
                     </div>
                 </div>
             </div>
         </div>
-        
+
         <!-- Recipe 6 -->
         <div class="recipe-card">
             <div class="recipe-card-inner">
                 <div class="recipe-card-front">
-                    <img src="butternut risotto.jpeg" alt="Butternut Squash Risotto" class="recipe-image">
-                    <h3 class="recipe-title">Butternut Squash Risotto</h3>
+                    <img src="A nutritious bowl of stir-fried tofu and crisp….jpeg" alt="Vegetable Stir Fry with Tofu" class="recipe-image">
+                    <h3 class="recipe-title">Tofu Vegetable Stir Fry <span class="vegan-tag">Vegan</span></h3>
+                    <div class="recipe-meta">
+                        <span>Prep: 15 mins</span>
+                        <span>Cook: 15 mins</span>
+                        <span>Serves: 4</span>
+                    </div>
                 </div>
                 <div class="recipe-card-back">
-                    <span class="cooking-time">⏱ 45 minutes</span>
-                    <h4 class="section-title">Ingredients:</h4>
-                    <ul>
-                        <li>1 small butternut squash, peeled and cubed (about 3 cups)</li>
-                        <li>1 tbsp olive oil</li>
-                        <li>1 onion, finely diced</li>
-                        <li>2 cloves garlic, minced</li>
-                        <li>1 1/2 cups Arborio rice</li>
-                        <li>1/2 cup white wine (or vegetable broth)</li>
-                        <li>4-5 cups hot vegetable broth</li>
-                        <li>1/2 tsp sage</li>
-                        <li>1/2 tsp thyme</li>
-                        <li>1/4 cup nutritional yeast (or Parmesan for non-vegan)</li>
-                        <li>Salt and pepper to taste</li>
-                        <li>Fresh parsley for garnish</li>
-                    </ul>
-                    <h4 class="section-title">Instructions:</h4>
-                    <ol>
-                        <li>Roast squash cubes at 400°F (200°C) for 20 minutes until tender.</li>
-                        <li>In large pot, sauté onion until soft. Add garlic, cook 1 minute.</li>
-                        <li>Add rice, stir 2 minutes until slightly translucent.</li>
-                        <li>Pour in wine, stir until absorbed.</li>
-                        <li>Add hot broth 1/2 cup at a time, stirring frequently until absorbed before adding more.</li>
-                        <li>When rice is al dente (about 20 minutes), stir in roasted squash, herbs, and nutritional yeast.</li>
-                        <li>Season with salt and pepper. Garnish with parsley.</li>
-                    </ol>
-                    <div class="alternative-tip">
-                        <strong>Alternatives:</strong> Use pumpkin instead of butternut squash. For creamier texture, stir in 1/4 cup coconut milk at the end.
+                    <div class="recipe-content">
+                        <h4>Ingredients</h4>
+                        <ul>
+                            <li>1 block firm tofu, pressed and cubed</li>
+                            <li>2 cups broccoli florets</li>
+                            <li>1 bell pepper, sliced</li>
+                            <li>1 carrot, julienned</li>
+                            <li>3 tbsp soy sauce</li>
+                            <li>1 tbsp maple syrup</li>
+                            <li>1 tsp ginger, grated</li>
+                            <li>2 cups cooked brown rice</li>
+                        </ul>
+                        <h4>Instructions</h4>
+                        <ol>
+                            <li>Stir-fry tofu in oil until golden, set aside</li>
+                            <li>Stir-fry vegetables 5-6 mins until crisp-tender</li>
+                            <li>Add sauce ingredients and tofu back to pan</li>
+                            <li>Cook 2 mins until sauce thickens slightly</li>
+                            <li>Serve over brown rice</li>
+                        </ol>
+                        <div class="alternative-tip">
+                            <strong>Alternative:</strong> Replace tofu with chicken for non-vegan version
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-        
+
         <!-- Recipe 7 -->
         <div class="recipe-card">
             <div class="recipe-card-inner">
                 <div class="recipe-card-front">
-                    <img src="A nutritious bowl of stir-fried tofu and crisp….jpeg" alt="Tofu Stir Fry" class="recipe-image">
-                    <h3 class="recipe-title">Tofu Stir Fry</h3>
+                    <img src="Avocado Chickpea Salad Recipe _ Platings….jpeg" alt="Avocado Chickpea Salad" class="recipe-image">
+                    <h3 class="recipe-title">Avocado Chickpea Salad <span class="vegan-tag">Vegan</span></h3>
+                    <div class="recipe-meta">
+                        <span>Prep: 10 mins</span>
+                        <span>Cook: 0 mins</span>
+                        <span>Serves: 4</span>
+                    </div>
                 </div>
                 <div class="recipe-card-back">
-                    <span class="cooking-time">⏱ 30 minutes</span>
-                    <h4 class="section-title">Ingredients:</h4>
-                    <ul>
-                        <li>14 oz extra firm tofu, pressed and cubed</li>
-                        <li>2 tbsp cornstarch</li>
-                        <li>2 tbsp soy sauce or tamari</li>
-                        <li>1 tbsp maple syrup</li>
-                        <li>1 tbsp sesame oil</li>
-                        <li>2 cloves garlic, minced</li>
-                        <li>1 tbsp fresh ginger, grated</li>
-                        <li>4 cups mixed vegetables (broccoli, bell peppers, carrots, snap peas)</li>
-                        <li>1/4 cup vegetable broth</li>
-                        <li>1 tbsp rice vinegar</li>
-                        <li>1 tsp sriracha (optional)</li>
-                        <li>Sesame seeds and green onions for garnish</li>
-                        <li>Cooked brown rice for serving</li>
-                    </ul>
-                    <h4 class="section-title">Instructions:</h4>
-                    <ol>
-                        <li>Toss tofu with cornstarch. Cook in large skillet until crispy, set aside.</li>
-                        <li>In same skillet, sauté garlic and ginger in sesame oil 30 seconds.</li>
-                        <li>Add vegetables, stir fry 5-7 minutes until crisp-tender.</li>
-                        <li>Whisk together soy sauce, maple syrup, broth, vinegar, and sriracha.</li>
-                        <li>Add sauce and tofu to vegetables. Cook 2 minutes until sauce thickens.</li>
-                        <li>Serve over rice, garnished with sesame seeds and green onions.</li>
-                    </ol>
-                    <div class="alternative-tip">
-                        <strong>Alternatives:</strong> Use tempeh instead of tofu. For nut-free version, use olive oil instead of sesame oil.
+                    <div class="recipe-content">
+                        <h4>Ingredients</h4>
+                        <ul>
+                            <li>2 avocados, diced</li>
+                            <li>1 can chickpeas, drained</li>
+                            <li>1/2 red onion, diced</li>
+                            <li>1/4 cup cilantro, chopped</li>
+                            <li>2 tbsp lime juice</li>
+                            <li>1 tsp cumin</li>
+                            <li>4 cups mixed greens</li>
+                        </ul>
+                        <h4>Instructions</h4>
+                        <ol>
+                            <li>Gently mix all ingredients except greens</li>
+                            <li>Season with salt and pepper</li>
+                            <li>Serve over bed of mixed greens</li>
+                            <li>Optional: serve with whole grain crackers</li>
+                        </ol>
                     </div>
                 </div>
             </div>
         </div>
-        
+
         <!-- Recipe 8 -->
         <div class="recipe-card">
             <div class="recipe-card-inner">
                 <div class="recipe-card-front">
-                    <img src="stuffed acron.jpeg" alt="Stuffed Acorn Squash" class="recipe-image">
-                    <h3 class="recipe-title">Stuffed Acorn Squash</h3>
+                    <img src="2810cefa-3dcd-4ad8-82ef-1dfd9b0dc9ba.jpeg" alt="Vegetable Soup" class="recipe-image">
+                    <h3 class="recipe-title">Hearty Vegetable Soup</h3>
+                    <div class="recipe-meta">
+                        <span>Prep: 15 mins</span>
+                        <span>Cook: 30 mins</span>
+                        <span>Serves: 6</span>
+                    </div>
                 </div>
                 <div class="recipe-card-back">
-                    <span class="cooking-time">⏱ 1 hour</span>
-                    <h4 class="section-title">Ingredients:</h4>
-                    <ul>
-                        <li>2 medium acorn squash, halved and seeded</li>
-                        <li>1 tbsp olive oil</li>
-                        <li>1/2 cup quinoa, rinsed</li>
-                        <li>1 cup vegetable broth</li>
-                        <li>1 onion, diced</li>
-                        <li>2 celery stalks, diced</li>
-                        <li>1 apple, diced</li>
-                        <li>1/2 cup dried cranberries</li>
-                        <li>1/2 cup pecans, chopped</li>
-                        <li>1 tsp sage</li>
-                        <li>1/2 tsp cinnamon</li>
-                        <li>Salt and pepper to taste</li>
-                        <li>Maple syrup for drizzling (optional)</li>
-                    </ul>
-                    <h4 class="section-title">Instructions:</h4>
-                    <ol>
-                        <li>Preheat oven to 400°F (200°C). Brush squash with oil, season with salt and pepper.</li>
-                        <li>Place squash cut-side down on baking sheet. Roast 30 minutes until tender.</li>
-                        <li>Meanwhile, cook quinoa in vegetable broth according to package directions.</li>
-                        <li>Sauté onion and celery until soft. Add apple, cook 2 minutes.</li>
-                        <li>Combine cooked quinoa, sautéed mixture, cranberries, pecans, and spices.</li>
-                        <li>Flip squash, fill with quinoa mixture. Bake 10 more minutes.</li>
-                        <li>Drizzle with maple syrup before serving if desired.</li>
-                    </ol>
-                    <div class="alternative-tip">
-                        <strong>Alternatives:</strong> Use wild rice instead of quinoa. Substitute walnuts for pecans. Add vegan sausage crumbles for protein.
+                    <div class="recipe-content">
+                        <h4>Ingredients</h4>
+                        <ul>
+                            <li>1 onion, diced</li>
+                            <li>2 carrots, sliced</li>
+                            <li>2 stalks celery, chopped</li>
+                            <li>3 cloves garlic, minced</li>
+                            <li>1 can diced tomatoes</li>
+                            <li>6 cups vegetable broth</li>
+                            <li>2 cups chopped cabbage</li>
+                            <li>1 tsp Italian seasoning</li>
+                        </ul>
+                        <h4>Instructions</h4>
+                        <ol>
+                            <li>Sauté onion, carrots and celery 5 mins</li>
+                            <li>Add garlic, cook 1 min more</li>
+                            <li>Add remaining ingredients</li>
+                            <li>Simmer 25-30 mins until vegetables are tender</li>
+                            <li>Season with salt and pepper to taste</li>
+                        </ol>
+                        <div class="alternative-tip">
+                            <strong>Variation:</strong> Add 1 cup cooked lentils for extra protein
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-        
+
         <!-- Recipe 9 -->
         <div class="recipe-card">
             <div class="recipe-card-inner">
                 <div class="recipe-card-front">
-                    <img src="This Vegetarian Paella is made in around 30….jpeg" alt="Vegetable Paella" class="recipe-image">
-                    <h3 class="recipe-title">Vegetable Paella</h3>
+                    <img src="Avocado Stuffed Quinoa Salad {Vegetarian}….jpeg" alt="Stuffed Avocados" class="recipe-image">
+                    <h3 class="recipe-title">Quinoa Stuffed Avocados <span class="vegan-tag">Vegan</span></h3>
+                    <div class="recipe-meta">
+                        <span>Prep: 15 mins</span>
+                        <span>Cook: 15 mins</span>
+                        <span>Serves: 4</span>
+                    </div>
                 </div>
                 <div class="recipe-card-back">
-                    <span class="cooking-time">⏱ 45 minutes</span>
-                    <h4 class="section-title">Ingredients:</h4>
-                    <ul>
-                        <li>1 1/2 cups short-grain rice (Bomba or Arborio)</li>
-                        <li>3 cups vegetable broth</li>
-                        <li>1 pinch saffron threads</li>
-                        <li>1 onion, diced</li>
-                        <li>3 cloves garlic, minced</li>
-                        <li>1 red bell pepper, sliced</li>
-                        <li>1 green bell pepper, sliced</li>
-                        <li>1 cup green beans, trimmed</li>
-                        <li>1 cup artichoke hearts, quartered</li>
-                        <li>1 can (14 oz) diced tomatoes</li>
-                        <li>1 tsp smoked paprika</li>
-                        <li>1/2 tsp turmeric</li>
-                        <li>1/2 cup frozen peas</li>
-                        <li>Lemon wedges and parsley for serving</li>
-                    </ul>
-                    <h4 class="section-title">Instructions:</h4>
-                    <ol>
-                        <li>Heat broth with saffron in saucepan, keep warm.</li>
-                        <li>In large paella pan or skillet, sauté onion until soft. Add garlic, cook 1 minute.</li>
-                        <li>Add bell peppers and green beans, cook 5 minutes.</li>
-                        <li>Stir in rice, paprika, and turmeric. Cook 1 minute.</li>
-                        <li>Add tomatoes and artichokes. Pour in warm broth.</li>
-                        <li>Simmer without stirring 15-20 minutes until rice is tender.</li>
-                        <li>Add peas last 5 minutes. Remove from heat, cover, rest 5 minutes.</li>
-                        <li>Serve with lemon wedges and fresh parsley.</li>
-                    </ol>
-                    <div class="alternative-tip">
-                        <strong>Alternatives:</strong> Add chickpeas for protein. Use brown rice (adjust liquid and cooking time). Include sliced mushrooms for earthiness.
+                    <div class="recipe-content">
+                        <h4>Ingredients</h4>
+                        <ul>
+                            <li>2 avocados, halved</li>
+                            <li>1 cup cooked quinoa</li>
+                            <li>1/2 cup black beans</li>
+                            <li>1/4 cup corn</li>
+                            <li>1 tbsp lime juice</li>
+                            <li>1/4 tsp chili powder</li>
+                            <li>Fresh cilantro for garnish</li>
+                        </ul>
+                        <h4>Instructions</h4>
+                        <ol>
+                            <li>Scoop out some avocado to make room for filling</li>
+                            <li>Mix quinoa, beans, corn, lime juice and spices</li>
+                            <li>Spoon mixture into avocado halves</li>
+                            <li>Garnish with cilantro</li>
+                            <li>Serve immediately</li>
+                        </ol>
                     </div>
                 </div>
             </div>
         </div>
-        
+
         <!-- Recipe 10 -->
         <div class="recipe-card">
             <div class="recipe-card-inner">
                 <div class="recipe-card-front">
-                    <img src="eggplant parmesan.jpeg" alt="Eggplant Parmesan" class="recipe-image">
-                    <h3 class="recipe-title">Eggplant Parmesan</h3>
+                    <img src="A delightful vegan coconut curry with fresh….jpeg" alt="Vegetable Curry" class="recipe-image">
+                    <h3 class="recipe-title">Vegetable Coconut Curry <span class="vegan-tag">Vegan</span></h3>
+                    <div class="recipe-meta">
+                        <span>Prep: 20 mins</span>
+                        <span>Cook: 25 mins</span>
+                        <span>Serves: 6</span>
+                    </div>
                 </div>
                 <div class="recipe-card-back">
-                    <span class="cooking-time">⏱ 1 hour 15 minutes</span>
-                    <h4 class="section-title">Ingredients:</h4>
-                    <ul>
-                        <li>2 large eggplants, sliced 1/4" thick</li>
-                        <li>Salt for sweating eggplant</li>
-                        <li>1 cup flour (or gluten-free flour)</li>
-                        <li>2 eggs (or flax eggs for vegan)</li>
-                        <li>2 cups breadcrumbs (or gluten-free)</li>
-                        <li>1/4 cup nutritional yeast (or Parmesan for non-vegan)</li>
-                        <li>1 tsp Italian seasoning</li>
-                        <li>3 cups marinara sauce</li>
-                        <li>2 cups shredded mozzarella (or vegan cheese)</li>
-                        <li>1/4 cup fresh basil, chopped</li>
-                        <li>Olive oil for baking</li>
-                    </ul>
-                    <h4 class="section-title">Instructions:</h4>
-                    <ol>
-                        <li>Sprinkle eggplant slices with salt, let sit 30 minutes. Rinse and pat dry.</li>
-                        <li>Preheat oven to 375°F (190°C). Set up breading station: flour, beaten eggs, and breadcrumbs mixed with nutritional yeast and Italian seasoning.</li>
-                        <li>Coat eggplant slices in flour, then egg, then breadcrumb mixture.</li>
-                        <li>Place on oiled baking sheets. Bake 20 minutes, flip, bake 10 more minutes until golden.</li>
-                        <li>In 9x13 dish, layer sauce, eggplant, cheese, repeating. Top with cheese.</li>
-                        <li>Bake 25-30 minutes until bubbly. Let rest 10 minutes before serving.</li>
-                        <li>Garnish with fresh basil.</li>
-                    </ol>
-                    <div class="alternative-tip">
-                        <strong>Alternatives:</strong> Use zucchini instead of eggplant. For lighter version, skip breading and just layer roasted eggplant slices.
+                    <div class="recipe-content">
+                        <h4>Ingredients</h4>
+                        <ul>
+                            <li>1 tbsp coconut oil</li>
+                            <li>1 onion, diced</li>
+                            <li>3 cloves garlic, minced</li>
+                            <li>1 tbsp curry powder</li>
+                            <li>1 can coconut milk</li>
+                            <li>2 cups cauliflower florets</li>
+                            <li>1 sweet potato, cubed</li>
+                            <li>1 cup chickpeas</li>
+                            <li>2 cups cooked brown rice</li>
+                        </ul>
+                        <h4>Instructions</h4>
+                        <ol>
+                            <li>Sauté onion and garlic in oil 3 mins</li>
+                            <li>Add curry powder, cook 1 min</li>
+                            <li>Add coconut milk and vegetables</li>
+                            <li>Simmer 20 mins until vegetables are tender</li>
+                            <li>Serve over brown rice</li>
+                        </ol>
                     </div>
                 </div>
             </div>
         </div>
-        
+
         <!-- Recipe 11 -->
         <div class="recipe-card">
             <div class="recipe-card-inner">
                 <div class="recipe-card-front">
-                    <img src="stuffed mushrooms.jpeg" alt="Mushroom Walnut Tacos" class="recipe-image">
-                    <h3 class="recipe-title">Mushroom Walnut Tacos</h3>
+                    <img src="f7c63b72-22f2-455a-83ec-0331d6ae44ea.jpeg" alt="Spinach Mushroom Quesadillas" class="recipe-image">
+                    <h3 class="recipe-title">Spinach Mushroom Quesadillas</h3>
+                    <div class="recipe-meta">
+                        <span>Prep: 10 mins</span>
+                        <span>Cook: 15 mins</span>
+                        <span>Serves: 4</span>
+                    </div>
                 </div>
                 <div class="recipe-card-back">
-                    <span class="cooking-time">⏱ 25 minutes</span>
-                    <h4 class="section-title">Ingredients:</h4>
-                    <ul>
-                        <li>8 oz mushrooms, finely chopped</li>
-                        <li>1 cup walnuts, finely chopped</li>
-                        <li>1 onion, diced</li>
-                        <li>2 cloves garlic, minced</li>
-                        <li>1 tbsp taco seasoning</li>
-                        <li>1 tbsp soy sauce or tamari</li>
-                        <li>1 tbsp tomato paste</li>
-                        <li>1/2 cup vegetable broth</li>
-                        <li>8 corn or whole wheat tortillas</li>
-                        <li>Toppings: avocado, lettuce, tomato, salsa, lime wedges</li>
-                    </ul>
-                    <h4 class="section-title">Instructions:</h4>
-                    <ol>
-                        <li>In skillet, sauté onion until soft. Add garlic, cook 1 minute.</li>
-                        <li>Add mushrooms and walnuts. Cook until mushrooms release liquid.</li>
-                        <li>Stir in taco seasoning, soy sauce, tomato paste, and broth.</li>
-                        <li>Simmer 5-7 minutes until liquid is absorbed.</li>
-                        <li>Warm tortillas according to package directions.</li>
-                        <li>Serve taco filling with desired toppings.</li>
-                    </ol>
-                    <div class="alternative-tip">
-                        <strong>Alternatives:</strong> Use pecans instead of walnuts. Add black beans for extra protein. For smoky flavor, add 1/2 tsp chipotle powder.
+                    <div class="recipe-content">
+                        <h4>Ingredients</h4>
+                        <ul>
+                            <li>4 whole wheat tortillas</li>
+                            <li>2 cups spinach, chopped</li>
+                            <li>1 cup mushrooms, sliced</li>
+                            <li>1 cup shredded cheese (or vegan cheese)</li>
+                            <li>1/2 tsp garlic powder</li>
+                            <li>1/4 cup salsa for serving</li>
+                        </ul>
+                        <h4>Instructions</h4>
+                        <ol>
+                            <li>Sauté mushrooms and spinach until wilted</li>
+                            <li>Spread cheese on half of each tortilla</li>
+                            <li>Top with vegetable mixture</li>
+                            <li>Fold tortillas in half</li>
+                            <li>Cook in dry skillet 2-3 mins per side until golden</li>
+                            <li>Serve with salsa</li>
+                        </ol>
                     </div>
                 </div>
             </div>
         </div>
-        
+
         <!-- Recipe 12 -->
         <div class="recipe-card">
             <div class="recipe-card-inner">
                 <div class="recipe-card-front">
-                    <img src="Black Bean & Sweet Potato Enchiladas.jpeg" alt="Sweet Potato and Black Bean Enchiladas" class="recipe-image">
-                    <h3 class="recipe-title">Sweet Potato & Black Bean Enchiladas</h3>
+                    <img src="b43aed94-1bf0-44ed-b9c7-e58b51ff8ea0.jpeg" alt="Buddha Bowl" class="recipe-image">
+                    <h3 class="recipe-title">Rainbow Buddha Bowl <span class="vegan-tag">Vegan</span></h3>
+                    <div class="recipe-meta">
+                        <span>Prep: 20 mins</span>
+                        <span>Cook: 15 mins</span>
+                        <span>Serves: 2</span>
+                    </div>
                 </div>
                 <div class="recipe-card-back">
-                    <span class="cooking-time">⏱ 1 hour</span>
-                    <h4 class="section-title">Ingredients:</h4>
-                    <ul>
-                        <li>2 medium sweet potatoes, peeled and diced</li>
-                        <li>1 can (15 oz) black beans, drained</li>
-                        <li>1 onion, diced</li>
-                        <li>2 cloves garlic, minced</li>
-                        <li>1 tsp cumin</li>
-                        <li>1 tsp chili powder</li>
-                        <li>1/2 tsp smoked paprika</li>
-                        <li>8 whole wheat or corn tortillas</li>
-                        <li>2 cups enchilada sauce</li>
-                        <li>1 cup shredded cheese (or vegan cheese)</li>
-                        <li>Fresh cilantro and avocado for serving</li>
-                    </ul>
-                    <h4 class="section-title">Instructions:</h4>
-                    <ol>
-                        <li>Preheat oven to 400°F (200°C). Toss sweet potatoes with oil, roast 20 minutes until tender.</li>
-                        <li>Sauté onion until soft. Add garlic and spices, cook 1 minute.</li>
-                        <li>Mash half the sweet potatoes. Mix with whole cubes, black beans, and onion mixture.</li>
-                        <li>Spread 1/2 cup enchilada sauce in baking dish.</li>
-                        <li>Fill tortillas with sweet potato mixture, roll up, place seam-side down in dish.</li>
-                        <li>Top with remaining sauce and cheese. Bake 20 minutes until bubbly.</li>
-                        <li>Garnish with cilantro and avocado slices.</li>
-                    </ol>
-                    <div class="alternative-tip">
-                        <strong>Alternatives:</strong> Add corn kernels or spinach to filling. Use butternut squash instead of sweet potatoes.
+                    <div class="recipe-content">
+                        <h4>Ingredients</h4>
+                        <ul>
+                            <li>1 cup cooked quinoa</li>
+                            <li>1/2 cup chickpeas, roasted</li>
+                            <li>1 cup mixed greens</li>
+                            <li>1/2 avocado, sliced</li>
+                            <li>1/2 cup shredded carrots</li>
+                            <li>1/4 cup hummus</li>
+                            <li>1 tbsp lemon-tahini dressing</li>
+                        </ul>
+                        <h4>Instructions</h4>
+                        <ol>
+                            <li>Divide quinoa between two bowls</li>
+                            <li>Arrange remaining ingredients in sections</li>
+                            <li>Drizzle with dressing</li>
+                            <li>Serve with extra dressing on the side</li>
+                        </ol>
+                        <div class="alternative-tip">
+                            <strong>Variations:</strong> Use any seasonal vegetables you have available
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-        
+
         <!-- Recipe 13 -->
         <div class="recipe-card">
             <div class="recipe-card-inner">
                 <div class="recipe-card-front">
-                    <img src="vegetable pot pie.jpeg" alt="Vegetable Pot Pie" class="recipe-image">
-                    <h3 class="recipe-title">Vegetable Pot Pie</h3>
+                    <img src="This Vegetarian Paella is made in around 30….jpeg" alt="Vegetable Paella" class="recipe-image">
+                    <h3 class="recipe-title">Vegetable Paella <span class="vegan-tag">Vegan</span></h3>
+                    <div class="recipe-meta">
+                        <span>Prep: 15 mins</span>
+                        <span>Cook: 30 mins</span>
+                        <span>Serves: 6</span>
+                    </div>
                 </div>
                 <div class="recipe-card-back">
-                    <span class="cooking-time">⏱ 1 hour 15 minutes</span>
-                    <h4 class="section-title">Ingredients:</h4>
-                    <ul>
-                        <li>1 pie crust (store-bought or homemade, vegan if needed)</li>
-                        <li>2 tbsp olive oil</li>
-                        <li>1 onion, diced</li>
-                        <li>2 carrots, diced</li>
-                        <li>2 celery stalks, diced</li>
-                        <li>2 cloves garlic, minced</li>
-                        <li>1 cup potatoes, diced</li>
-                        <li>1 cup mushrooms, sliced</li>
-                             <li>1/2 cup frozen peas</li>
-                        <li>1/2 cup frozen corn</li>
-                        <li>3 tbsp flour (or gluten-free flour)</li>
-                        <li>2 cups vegetable broth</li>
-                        <li>1/2 cup plant-based milk</li>
-                        <li>1 tsp thyme</li>
-                        <li>1 tsp rosemary</li>
-                        <li>Salt and pepper to taste</li>
-                    </ul>
-                    <h4 class="section-title">Instructions:</h4>
-                    <ol>
-                        <li>Preheat oven to 375°F (190°C).</li>
-                        <li>In large pot, sauté onion, carrots, and celery until softened.</li>
-                        <li>Add garlic, potatoes, and mushrooms. Cook 5 minutes.</li>
-                        <li>Sprinkle flour over vegetables, stir to coat.</li>
-                        <li>Gradually add broth and milk, stirring constantly until thickened.</li>
-                        <li>Stir in peas, corn, and herbs. Season with salt and pepper.</li>
-                        <li>Transfer to baking dish. Cover with pie crust, venting top.</li>
-                        <li>Bake 30-35 minutes until crust is golden.</li>
-                        <li>Let cool 10 minutes before serving.</li>
-                    </ol>
-                    <div class="alternatives">
-                        <strong>Alternatives:</strong> Use biscuit dough instead of pie crust. Add cooked lentils for extra protein.
+                    <div class="recipe-content">
+                        <h4>Ingredients</h4>
+                        <ul>
+                            <li>1 tbsp olive oil</li>
+                            <li>1 onion, diced</li>
+                            <li>1 red bell pepper, sliced</li>
+                            <li>2 cups short grain rice</li>
+                            <li>1 tsp smoked paprika</li>
+                            <li>4 cups vegetable broth</li>
+                            <li>1 cup green beans</li>
+                            <li>1 cup artichoke hearts</li>
+                            <li>Lemon wedges for serving</li>
+                        </ul>
+                        <h4>Instructions</h4>
+                        <ol>
+                            <li>Sauté onion and bell pepper in oil 5 mins</li>
+                            <li>Add rice and paprika, stir 1 min</li>
+                            <li>Add broth and bring to boil</li>
+                            <li>Reduce heat, add vegetables</li>
+                            <li>Simmer 20 mins until rice is tender</li>
+                            <li>Let stand 5 mins before serving with lemon</li>
+                        </ol>
                     </div>
                 </div>
             </div>
         </div>
-        
+
         <!-- Recipe 14 -->
-    <div class="recipe-card">
-        <div class="card-inner">
-            <div class="card-front">
-                <img src="lentil pasta.jpeg" alt="Lentil Bolognese" class="recipe-image">
-                <h3 class="recipe-title">Lentil Bolognese</h3>
-            </div>
-            <div class="card-back">
-                <span class="cooking-time">⏱ 40 minutes</span>
-                <h4 class="section-title">Ingredients:</h4>
-                <ul>
-                    <li>1 cup dried brown or green lentils</li>
-                    <li>1 onion, finely diced</li>
-                    <li>2 carrots, finely diced</li>
-                    <li>2 celery stalks, finely diced</li>
-                    <li>3 cloves garlic, minced</li>
-                    <li>8 oz mushrooms, finely chopped</li>
-                    <li>1 can (14 oz) crushed tomatoes</li>
-                    <li>2 tbsp tomato paste</li>
-                    <li>1 tsp dried oregano</li>
-                    <li>1 tsp dried basil</li>
-                    <li>1/2 tsp red pepper flakes (optional)</li>
-                    <li>2 cups vegetable broth</li>
-                    <li>1 tbsp balsamic vinegar</li>
-                    <li>1/4 cup fresh parsley, chopped</li>
-                    <li>Whole wheat pasta for serving</li>
-                </ul>
-                <h4 class="section-title">Instructions:</h4>
-                <ol>
-                    <li>Rinse lentils and set aside.</li>
-                    <li>Sauté onion, carrots, and celery until soft (5-7 mins). Add garlic and mushrooms, cook 3 more mins.</li>
-                    <li>Add lentils, tomatoes, tomato paste, herbs, red pepper flakes, and broth. Bring to boil.</li>
-                    <li>Reduce heat, simmer 25-30 mins until lentils are tender.</li>
-                    <li>Stir in balsamic vinegar and fresh parsley.</li>
-                    <li>Serve over whole wheat pasta with nutritional yeast or vegan Parmesan.</li>
-                </ol>
-                <div class="alternatives">
-                    <strong>Alternatives:</strong> Use walnuts instead of mushrooms for texture. Add 1 tsp smoked paprika for depth. For gluten-free, use chickpea pasta.
+        <div class="recipe-card">
+            <div class="recipe-card-inner">
+                <div class="recipe-card-front">
+                    <img src="SAVE RECIPE NOW 👉 These Classic Greek Stuffed….jpeg" alt="Stuffed Zucchini Boats" class="recipe-image">
+                    <h3 class="recipe-title">Stuffed Zucchini Boats</h3>
+                    <div class="recipe-meta">
+                        <span>Prep: 20 mins</span>
+                        <span>Cook: 25 mins</span>
+                        <span>Serves: 4</span>
+                    </div>
+                </div>
+                <div class="recipe-card-back">
+                    <div class="recipe-content">
+                        <h4>Ingredients</h4>
+                        <ul>
+                            <li>2 large zucchinis</li>
+                            <li>1 cup cooked quinoa</li>
+                            <li>1/2 cup marinara sauce</li>
+                            <li>1/4 cup grated Parmesan (or nutritional yeast)</li>
+                            <li>1 tsp Italian seasoning</li>
+                            <li>1/4 cup breadcrumbs</li>
+                        </ul>
+                        <h4>Instructions</h4>
+                        <ol>
+                            <li>Cut zucchinis in half lengthwise, scoop out centers</li>
+                            <li>Mix quinoa, marinara, and seasonings</li>
+                            <li>Fill zucchini halves with mixture</li>
+                            <li>Sprinkle with breadcrumbs and cheese</li>
+                            <li>Bake at 375°F (190°C) for 20-25 mins</li>
+                        </ol>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
 
-    <!--Recipe 15-->
-    <div class="recipe-card">
-        <div class="card-inner">
-            <div class="card-front">
-                <img src="stuffed mushrooms.jpeg" alt="Stuffed Portobello Mushrooms" class="recipe-image">
-                <h3 class="recipe-title">Stuffed Portobello Mushrooms</h3>
-            </div>
-            <div class="card-back">
-                <span class="cooking-time">⏱ 35 minutes</span>
-                <h4 class="section-title">Ingredients:</h4>
-                <ul>
-                    <li>4 large Portobello mushrooms</li>
-                    <li>2 tbsp balsamic vinegar</li>
-                    <li>1 tbsp olive oil</li>
-                    <li>1 cup quinoa, cooked</li>
-                    <li>1 zucchini, diced</li>
-                    <li>1 red bell pepper, diced</li>
-                    <li>2 cloves garlic, minced</li>
-                    <li>1/2 cup sun-dried tomatoes, chopped</li>
-                    <li>1/4 cup fresh basil, chopped</li>
-                    <li>1/4 cup vegan Parmesan or nutritional yeast</li>
-                    <li>1 tsp Italian seasoning</li>
-                    <li>Salt and pepper to taste</li>
-                </ul>
-                <h4 class="section-title">Instructions:</h4>
-                <ol>
-                    <li>Preheat oven to 375°F (190°C).</li>
-                    <li>Remove stems from mushrooms and brush caps with balsamic and oil.</li>
-                    <li>Sauté zucchini, bell pepper, and garlic until tender (5 mins).</li>
-                    <li>Mix cooked quinoa, sautéed vegetables, sun-dried tomatoes, basil, and half the vegan Parmesan.</li>
-                    <li>Season with Italian seasoning, salt, and pepper.</li>
-                    <li>Stuff mushroom caps with mixture and top with remaining Parmesan.</li>
-                    <li>Bake 20 minutes until mushrooms are tender.</li>
-                    <li>Serve with side salad or roasted vegetables.</li>
-                </ol>
-                <div class="alternatives">
-                    <strong>Alternatives:</strong> Use brown rice instead of quinoa. Add chopped walnuts for crunch. Substitute eggplant for zucchini.
+        <!-- Recipe 15 -->
+        <div class="recipe-card">
+            <div class="recipe-card-inner">
+                <div class="recipe-card-front">
+                    <img src="Healthy Mediterranean Veggie and Hummus Wrap….jpeg" alt="Mediterranean Wrap" class="recipe-image">
+                    <h3 class="recipe-title">Mediterranean Wrap <span class="vegan-tag">Vegan</span></h3>
+                    <div class="recipe-meta">
+                        <span>Prep: 10 mins</span>
+                        <span>Cook: 0 mins</span>
+                        <span>Serves: 2</span>
+                    </div>
+                </div>
+                <div class="recipe-card-back">
+                    <div class="recipe-content">
+                        <h4>Ingredients</h4>
+                        <ul>
+                            <li>2 whole wheat tortillas</li>
+                            <li>1/2 cup hummus</li>
+                            <li>1/2 cucumber, sliced</li>
+                            <li>1/4 red onion, thinly sliced</li>
+                            <li>1/2 cup cherry tomatoes, halved</li>
+                            <li>1/4 cup kalamata olives</li>
+                            <li>1 cup baby spinach</li>
+                        </ul>
+                        <h4>Instructions</h4>
+                        <ol>
+                            <li>Spread hummus on tortillas</li>
+                            <li>Layer with remaining ingredients</li>
+                            <li>Roll up tightly</li>
+                            <li>Cut in half and serve</li>
+                        </ol>
+                        <div class="alternative-tip">
+                            <strong>Variation:</strong> Add feta cheese for non-vegan version
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
-</div>
 
-  <!--Footer-->
+    </div> <!-- End recipes-container -->
+
+    <!--Footer-->
   <footer class="bg-success text-white text-center text-lg-start mt-5">
   <div class="container p-4">
     <p class="text-center">
