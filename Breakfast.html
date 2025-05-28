@@ -1,192 +1,144 @@
-<!doctype html>
- <html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Foods4theSDAs</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-SgOJa3DmI69IUzQ2PVdRZhwQ+dy64/BUtbMJw1MZ8t5HZApcHrRKUc4W0kG879m7" crossorigin="anonymous">
-    <link rel="stylesheet" href="styles.css" type="text/css">
-    <link rel="icon" type="image/jpeg" href="SDA Logo.jpeg">
-  
-
-  <style>
-    body {
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background-color: lightblue;
-      margin: 0;
-      padding: 0;
-    }
-
-    /* Navbar Style */
-    .navbar {
+ <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>15 Delicious Breakfast Recipes</title>
+    <style>
+      .navbar {
       display: flex;
-      height: 80px;
-      background-color: #2E7D32;
-      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+      height: 80px; /* Adjust this to match your logo height */
+      background-color: #2E7D32; /* Adventist green */
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
       position: sticky;
       top: 0;
       z-index: 100;
-    }
-
-    /* Recipes Container */
-    .recipes-container {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-      gap: 20px;
-      max-width: 1200px;
-      margin: 30px auto;
-      padding: 20px;
-    }
-
-    /* Recipe Card Styles */
-    .recipe-card {
-      perspective: 1000px;
-      height: 500px;
-      border-radius: 12px;
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    }
-
-    .recipe-card-inner {
-      position: relative;
-      width: 100%;
-      height: 100%;
-      transition: transform 0.8s ease-in-out;
-      transform-style: preserve-3d;
-    }
-
-    .recipe-card:hover .recipe-card-inner {
-      transform: rotateY(180deg);
-    }
-
-    .recipe-card-front,
-    .recipe-card-back {
-      position: absolute;
-      width: 100%;
-      height: 100%;
-      backface-visibility: hidden;
-      border-radius: 12px;
-      overflow: hidden;
-    }
-
-    .recipe-card-front {
-      background-color: #fff;
-    }
-
-    .recipe-card-back {
-      background-color: #f5f5f5;
-      transform: rotateY(180deg);
-      padding: 20px;
-      overflow-y: auto;
-    }
-
-    .card-img {
-      width: 100%;
-      height: 250px;
-      object-fit: cover;
-    }
-
-    .card-title-overlay {
-      padding: 15px;
-      text-align: center;
-      background-color: #2E7D32;
-      color: white;
-      margin: 0;
-      font-size: 1.3rem;
-    }
-
-    .vegan-badge,
-    .badge {
-      position: absolute;
-      top: 15px;
-      right: 15px;
-      background: #4CAF50;
-      color: white;
-      padding: 3px 10px;
-      border-radius: 20px;
-      font-size: 0.8rem;
-      font-weight: bold;
-    }
-
-    .health-badge {
-      background: #388E3C;
-    }
-
-    .recipe-meta {
-      display: flex;
-      justify-content: space-around;
-      padding: 10px;
-      background-color: #1B5E20;
-      color: #ffffff;
-      font-weight: bold;
-    }
-
-    .recipe-content h3 {
-      color: #2E7D32;
-      margin-top: 0;
-      font-size: 1.3rem;
-      border-bottom: 2px solid #C8E6C9;
-      padding-bottom: 5px;
-    }
-
-    .recipe-content h4 {
-      color: #2E7D32;
-      margin: 15px 0 10px 0;
-      border-bottom: 2px solid #C8E6C9;
-      padding-bottom: 5px;
-    }
-
-    .recipe-content ul,
-    .recipe-content ol {
-      padding-left: 20px;
-    }
-
-    .recipe-content li {
-      margin-bottom: 8px;
-      line-height: 1.4;
-    }
-
-    .recipe-tip,
-    .nutrition-tip,
-    .alternative-tip,
-    .storage-tip,
-    .variation-tip,
-    .timing-tip {
-      background-color: #E8F5E9;
-      padding: 10px;
-      border-left: 4px solid #4CAF50;
-      margin-top: 15px;
-      font-size: 0.9rem;
-      border-radius: 0 5px 5px 0;
-    }
-
-    .chef-tip {
-      background-color: #FFF9C4;
-      padding: 10px;
-      border-left: 4px solid #FFD54F;
-      margin-top: 15px;
-      font-size: 0.9rem;
-      border-radius: 0 5px 5px 0;
-    }
-
-    /* Responsive Design */
-    @media (max-width: 1000px) {
-      .recipes-container {
-        grid-template-columns: repeat(2, 1fr);
       }
-    }
-
-    @media (max-width: 600px) {
-      .recipes-container {
-        grid-template-columns: 1fr;
-      }
-
-      .recipe-card {
-        height: auto;
-        min-height: 500px;
-      }
-    }
-    .custom-footer {
-    background-color:#2E7D32; /* Light grey background */
+        /* Global Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            background-color: #f9f5f0;
+            color: #2E7D32;
+            line-height: 1.6;
+        }
+          
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        header {
+            text-align: center;
+            padding: 40px 0;
+            background-color: #2E7D32;
+            color: white;
+            margin-bottom: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+        
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+        }
+        
+        .subtitle {
+            font-size: 1.2rem;
+            opacity: 0.9;
+        }
+        
+        /* Recipe Grid */
+        .recipes-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            margin-top: 30px;
+        }
+        
+        .recipe-card {
+            background-color: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+        
+        .recipe-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .recipe-img {
+            height: 200px;
+            background-size: cover;
+            background-position: center;
+        }
+        
+        .recipe-content {
+            padding: 20px;
+        }
+        
+        .recipe-title {
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+            color: #2E7D32;
+        }
+        
+        .recipe-description {
+            margin-bottom: 15px;
+            color: #2E7D32;
+        }
+        
+        .ingredients-title {
+            font-weight: bold;
+            margin-bottom: 8px;
+            color: #2E7D32;
+        }
+        
+        .ingredients-list {
+            list-style-type: none;
+            margin-bottom: 15px;
+        }
+        
+        .ingredients-list li {
+            padding: 5px 0;
+            border-bottom: 1px dashed #eee;
+            display: flex;
+            align-items: center;
+        }
+        
+        .ingredients-list li:before {
+            content: "•";
+            color: #2E7D32;
+            font-weight: bold;
+            display: inline-block;
+            width: 1em;
+            margin-left: -1em;
+        }
+        
+        
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .recipes-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .recipes-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            h1 {
+                font-size: 2rem;
+            }
+        }
+           
+     /* Footer Styling */
+.custom-footer {
+    background-color:#2E7D32 ; /* Light grey background */
     padding: 30px 0;           /* Top and bottom padding */
     text-align: center;        /* Center all text */
     font-size: 16px;           /* Font size */
@@ -198,591 +150,331 @@
   .custom-footer p {
     margin: 5px 0;  /* Space between paragraphs */
   }
-  </style>
+    </style>
 </head>
-
 <body>
-  <h1 class="text-center py-4 text-success">Healthy Living with Adventists</h1>
-
-  <nav class="navbar navbar-expand-lg">
-    <div class="container-fluid">
-      <a class="navbar-brand d-flex align-items-center" href="Breakfast.html">
-        <img src="SDA Logo.jpeg" alt="SDA logo" height="50" class="me-2" />
-        <span class="text-white">Healthy Living</span>
-      </a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-        data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
-        aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-          <li class="nav-item">
-            <a class="nav-link text-white" href="index.html">Home</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link text-white" href="HealthTips.html">Health Tips</a>
-          </li>
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle text-white" href="Recipes.html" role="button" data-bs-toggle="dropdown"
-              aria-expanded="false">
-              Recipes
-            </a>
-            <ul class="dropdown-menu">
-              <li><a class="dropdown-item" href="Breakfast.html">Breakfast</a></li>
-              <li><a class="dropdown-item" href="Lunch.html">Lunch</a></li>
-              <li><a class="dropdown-item" href="Dinner.html">Dinner</a></li>
-            </ul>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link text-white" href="AboutUs.html">About Us</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link text-white" href="ContactUs.html">Contact Us</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link text-white" href="Feedback.html">Feedback</a>
-          </li>
-        </ul>
+ <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.bundle.min.js" integrity="sha384-k6d4wzSIapyDyv1kpU366/PK5hCdSbCRGRCMv+eplOQJWyd1fbcAu9OCUj5zNLiq" crossorigin="anonymous"></script>
+   <h1 class="main-heading">Healthy Living with Adventists</h1>
+    <nav class="navbar navbar-expand-lg bg-body-tertiary">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="AboutUs.html"><Healthy Living>
+        <img src="SDA Logo.jpeg" class="img-fluid" alt="SDA logo" height="50">    
+        <span class="text-white mb-2 fw-bold">Healthy Living</span></a>                                        
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="index.html">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="HealthTips.html">HealthTips</a>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                Recipes
+              </a>
+              <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="Breakfast.html">Breakfast</a></li>
+                <li><a class="dropdown-item" href="Lunch.html">Lunch</a></li>
+                <li><a class="dropdown-item" href="Dinner.html">Dinner</a></li>
+              </ul>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="AboutUs.html">AboutUs</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="ContactUs.html">ContactUs</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="Feedback.html">Feedback</a>
+            </li>
+          </ul>
+        </div>
       </div>
-    </div>
-  </nav>
-
-  <div class="recipes-container" style="display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 20px; padding: 20px;">
-    <div class="recipe-card">
-        <div class="recipe-card-inner">
-            <div class="recipe-card-front">
-                <img src="Toast with roasted potatoes, scrambled eggs and garden salad.jpg"
-                    alt="Roasted baby potatoes with scrambled eggs, toasted bread and a garden salad" class="card-img">
-                <div class="card-title-overlay">
-                    <h3>Roasted Potatoes with Eggs</h3>
-                </div>
-            </div>
-            <div class="recipe-card-back">
-                <div class="recipe-content">
-                    <h3>Roasted Potatoes with Scrambled Eggs</h3>
-                    <div class="recipe-meta">
-                        <span><strong>Serves:</strong> 2</span>
-                        <span><strong>Prep:</strong> 10 mins</span>
-                        <span><strong>Cook:</strong> 25 mins</span>
-                    </div>
-                    <div class="recipe-details">
-                        <div class="ingredients">
-                            <h4>Ingredients:</h4>
-                            <h5>Roasted Potatoes:</h5>
-                            <ul>
-                                <li>1 cup baby potatoes, halved</li>
-                                <li>1 tbsp olive oil</li>
-                                <li>½ tsp garlic powder</li>
-                                <li>½ tsp paprika</li>
-                                <li>Salt & pepper to taste</li>
-                            </ul>
-                            <h5>Scrambled Eggs:</h5>
-                            <ul>
-                                <li>2 eggs</li>
-                                <li>1 tbsp butter or oil</li>
-                                <li>2 tbsp milk (optional)</li>
-                                <li>Salt & pepper to taste</li>
-                            </ul>
-                            <h5>Toast:</h5>
-                            <ul>
-                                <li>2 slices of bread</li>
-                                <li>Butter (optional)</li>
-                            </ul>
-                            <h5>Garden Salad:</h5>
-                            <ul>
-                                <li>1 cup mixed lettuce</li>
-                                <li>½ cup cherry tomatoes</li>
-                                <li>¼ cup pomegranate seeds</li>
-                                <li>2 tbsp salad dressing</li>
-                            </ul>
-                        </div>
-                        <div class="instructions">
-                            <h4>Instructions:</h4>
-                            <ol>
-                                <li><strong>Roast Potatoes:</strong> Preheat oven to 400°F. Toss potatoes with oil and spices. Roast
-                                    for 20–25 mins, flipping halfway.</li>
-                                <li><strong>Prepare Salad:</strong> Combine lettuce, tomatoes, and pomegranate seeds. Add dressing just
-                                    before serving.</li>
-                                <li><strong>Scramble Eggs:</strong> Whisk eggs with milk, salt and pepper. Cook in butter over medium
-                                    heat for 2–3 mins.</li>
-                                <li><strong>Toast Bread:</strong> Toast until golden. Butter if desired.</li>
-                                <li><strong>Assemble & Serve:</strong> Plate eggs, potatoes, toast and salad together.</li>
-                            </ol>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    
-    <div class="recipe-card">
-        <div class="recipe-card-inner">
-            <div class="recipe-card-front">
-                <img src="Spinach pancakes with eggs.jpg" alt="Spinach Pancakes with Eggs" class="card-img">
-                <div class="card-title-overlay">
-                    <h3>Spinach Pancakes</h3>
-                </div>
-            </div>
-            <div class="recipe-card-back">
-                <div class="recipe-content">
-                    <h3>Spinach Pancakes with Side of Eggs</h3>
-                    <div class="recipe-meta">
-                        <span><strong>Serves:</strong> 2</span>
-                        <span><strong>Prep:</strong> 10 mins</span>
-                        <span><strong>Cook:</strong> 15 mins</span>
-                    </div>
-                    <div class="recipe-details">
-                        <div class="ingredients">
-                            <h4>Ingredients:</h4>
-                            <h5>Spinach Pancakes:</h5>
-                            <ul>
-                                <li>1 cup fresh spinach</li>
-                                <li>1 cup all-purpose flour</li>
-                                <li>1 egg</li>
-                                <li>¾ cup milk</li>
-                                <li>1 tbsp melted butter/oil</li>
-                                <li>½ tsp baking powder</li>
-                                <li>¼ tsp salt</li>
-                                <li>¼ tsp garlic powder</li>
-                                <li>Oil/butter for cooking</li>
-                            </ul>
-                            <h5>Side Eggs:</h5>
-                            <ul>
-                                <li>2 eggs</li>
-                                <li>1 tbsp butter/oil</li>
-                                <li>Salt & pepper to taste</li>
-                            </ul>
-                            <h5>Optional Toppings:</h5>
-                            <ul>
-                                <li>Greek yogurt/sour cream</li>
-                                <li>Avocado</li>
-                                <li>Hot sauce/lemon wedges</li>
-                            </ul>
-                        </div>
-                        <div class="instructions">
-                            <h4>Instructions:</h4>
-                            <ol>
-                                <li><strong>Make Batter:</strong> Blend spinach, milk and egg. Mix dry ingredients separately. Combine both, then add melted butter.</li>
-                                <li><strong>Cook Pancakes:</strong> Heat pan, pour ¼ cup batter per pancake. Cook 2-3 mins per side until golden.</li>
-                                <li><strong>Cook Eggs:</strong> In same pan, cook eggs sunny-side up or scrambled for 2-3 mins. Season.</li>
-                                <li><strong>Serve:</strong> Stack pancakes with eggs. Add toppings if desired.</li>
-                            </ol>
-                            <div class="recipe-tip">
-                                <strong>Tip:</strong> For extra fluffy pancakes, let the batter rest for 5 minutes before cooking!
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-   
-    <div class="recipe-card vegan-recipe">
-        <div class="recipe-card-inner">
-            <div class="recipe-card-front">
-                <img src="quinoa with broccoli, avo and chickpeas.jpeg" alt="Quinoa Bowl" class="card-img">
-                <div class="card-title-overlay">
-                    <h3>Avocado & Chickpea Quinoa Bowl</h3>
-                    <div class="vegan-badge">VEGAN</div>
-                </div>
-            </div>
-            <div class="recipe-card-back">
-                <div class="recipe-content">
-                    <h3>Avocado & Chickpea Quinoa Bowl with Roasted Broccoli</h3>
-                    <div class="recipe-meta">
-                        <span><strong>Serves:</strong> 2</span>
-                        <span><strong>Prep:</strong> 10 mins</span>
-                        <span><strong>Cook:</strong> 20 mins</span>
-                        <span class="health-badge">🌱 High Fiber</span>
-                    </div>
-                    <div class="recipe-details">
-                        <div class="ingredients">
-                            <h4>Ingredients:</h4>
-                            <ul>
-                                <li>½ cup quinoa (uncooked)</li>
-                                <li>1 cup water or vegetable broth</li>
-                                <li>1 cup cooked chickpeas</li>
-                                <li>1 small broccoli, cut into florets</li>
-                                <li>1 ripe avocado, diced</li>
-                                <li>1 tbsp olive oil</li>
-                                <li>½ tsp garlic powder</li>
-                                <li>½ tsp cumin</li>
-                                <li>Salt & pepper to taste</li>
-                                <li class="optional">Optional: lemon juice, red pepper flakes, tahini</li>
-                            </ul>
-                        </div>
-                        <div class="instructions">
-                            <h4>Instructions:</h4>
-                            <ol>
-                                <li><strong>Cook quinoa:</strong> Rinse quinoa, combine with water/broth. Bring to boil then simmer covered for 15 mins. Fluff with fork.</li>
-                                <li><strong>Roast broccoli:</strong> Toss with oil, garlic powder, S&P. Roast at 400°F for 15-20 mins until crispy-tender.</li>
-                                <li><strong>Season chickpeas:</strong> Sauté drained chickpeas with cumin, S&P for 3-5 mins until slightly crispy.</li>
-                                <li><strong>Assemble bowl:</strong> Layer quinoa, broccoli, chickpeas and avocado. Add optional toppings.</li>
-                            </ol>
-                            <div class="nutrition-tip">
-                                <strong>Nutrition Tip:</strong> This bowl provides complete protein (quinoa + chickpeas), healthy fats (avocado), and fiber (broccoli).
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-   
-    <div class="recipe-card">
-        <div class="recipe-card-inner">
-            <div class="recipe-card-front">
-                <img src="Smoked salmon bagel.jpeg" alt="Homemade Bagel with Smoked Salmon" class="card-img">
-                <div class="card-title-overlay">
-                    <h3>Smoked Salmon Bagel</h3>
-                    <div class="badge">🥯 Homemade</div>
-                </div>
-            </div>
-            <div class="recipe-card-back">
-                <div class="recipe-content">
-                    <h3>From-Scratch Bagel with Smoked Salmon</h3>
-                    <div class="recipe-meta">
-                        <span><strong>Serves:</strong> 6 bagels</span>
-                        <span><strong>Prep:</strong> 1.5 hrs</span>
-                        <span><strong>Cook:</strong> 25 mins</span>
-                    </div>
-                    <div class="recipe-details">
-                        <div class="ingredients">
-                            <h4>Ingredients:</h4>
-                            <h5>Bagel Ingredients:</h5>
-                            <ul>
-                                <li>3½ cups (420g) bread flour</li>
-                                <li>1½ tsp salt</li>
-                                <li>1 tbsp honey or barley malt syrup</li>
-                                <li>1¼ cups warm water (110°F/45°C)</li>
-                                <li>2 tsp active dry yeast</li>
-                                <li>1 egg white (for egg wash)</li>
-                                <li>2 tbsp everything bagel seasoning</li>
-                            </ul>
-                            <h5>Topping Ingredients:</h5>
-                            <ul>
-                                <li>6 oz smoked salmon</li>
-                                <li>½ cup cream cheese</li>
-                                <li>¼ red onion, thinly sliced</li>
-                                <li>1 tbsp capers</li>
-                                <li>1 tbsp fresh dill</li>
-                                <li>1 lemon, cut into wedges</li>
-                            </ul>
-                        </div>
-                        <div class="instructions">
-                            <h4>Instructions:</h4>
-                            <ol>
-                                <li><strong>Make dough:</strong> Mix yeast with warm water and honey. Let sit 5 mins until foamy. Combine flour and salt in a large bowl. Add yeast mixture and knead for 10 mins until smooth and elastic.</li>
-                                <li><strong>First rise:</strong> Place dough in greased bowl, cover with towel, and let rise 1 hour until doubled.</li>
-                                <li><strong>Shape bagels:</strong> Punch down dough and divide into 6 equal pieces. Roll each into a ball, then poke a hole through center and stretch to form a ring.</li>
-                                <li><strong>Second rise:</strong> Place shaped bagels on parchment-lined baking sheet, cover, and rest for 30 mins.</li>
-                                <li><strong>Boil:</strong> Preheat oven to 425°F (220°C). Bring large pot of water to boil. Boil bagels 1 minute per side, 2 minutes total.</li>
-                                <li><strong>Bake:</strong> Transfer to baking sheet, brush with egg wash, sprinkle seasoning. Bake 20-25 mins until golden brown.</li>
-                                <li><strong>Cool:</strong> Let cool on wire rack for at least 15 mins before slicing.</li>
-                            </ol>
-                            <h4>Assembly:</h4>
-                            <ol start="8">
-                                <li>Slice cooled bagels and toast lightly.</li>
-                                <li>Spread cream cheese on both halves.</li>
-                                <li>Layer with smoked salmon, red onion, capers and dill.</li>
-                                <li>Squeeze lemon juice over top and serve immediately.</li>
-                            </ol>
-                            <div class="chef-tip">
-                                <strong>Baker's Tip:</strong> For chewier bagels, add 1 tbsp baking soda to the boiling water! The alkaline water creates a pretzel-like crust.
-                                <strong>NB:</strong> If you don't want to make bagels from scratch you can just run down to the store and buy them.
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    
-    <div class="recipe-card">
-        <div class="recipe-card-inner">
-            <div class="recipe-card-front">
-                <img src="Egg Muffins.jpeg" alt="Fluffy Egg Muffins" class="card-img">
-                <div class="card-title-overlay">
-                    <h3>Egg Muffins</h3>
-                    <div class="badge">🍳 Meal Prep</div>
-                </div>
-            </div>
-            <div class="recipe-card-back">
-                <div class="recipe-content">
-                    <h3>Fluffy Egg Muffins</h3>
-                    <div class="recipe-meta">
-                        <span><strong>Makes:</strong> 12 muffins</span>
-                        <span><strong>Prep:</strong> 15 mins</span>
-                        <span><strong>Cook:</strong> 20 mins</span>
-                        <span><strong>Total:</strong> 35 mins</span>
-                    </div>
-                    <div class="recipe-details">
-                        <div class="ingredients">
-                            <h4>Ingredients:</h4>
-                            <h5>Base Ingredients:</h5>
-                            <ul>
-                                <li>8 large eggs</li>
-                                <li>¼ cup milk (any kind)</li>
-                                <li>½ tsp salt</li>
-                                <li>¼ tsp black pepper</li>
-                                <li>1 tbsp olive oil or butter</li>
-                            </ul>
-                            <h5>Suggested Add-Ins (choose 2-3):</h5>
-                            <ul>
-                                <li>½ cup diced bell peppers</li>
-                                <li>⅓ cup crumbled cooked bacon</li>
-                                <li>½ cup shredded cheddar cheese</li>
-                                <li>¼ cup chopped spinach</li>
-                                <li>2 tbsp diced onions</li>
-                                <li>¼ cup diced ham</li>
-                                <li>1 tbsp chopped fresh herbs (chives, parsley)</li>
-                            </ul>
-                        </div>
-                        <div class="instructions">
-                            <h4>Instructions:</h4>
-                            <ol>
-                                <li><strong>Prep:</strong> Preheat oven to 350°F (175°C). Grease a 12-cup muffin tin or line with silicone liners.</li>
-                                <li><strong>Whisk eggs:</strong> In large bowl, whisk eggs, milk, salt and pepper until fully combined and slightly frothy.</li>
-                                <li><strong>Add mix-ins:</strong> Stir in your chosen ingredients (about ¼ cup total add-ins per muffin).</li>
-                                <li><strong>Fill cups:</strong> Pour egg mixture into muffin cups, filling each ¾ full (about ¼ cup per muffin).</li>
-                                <li><strong>Bake:</strong> 18-22 minutes until centers are set and edges are golden. A toothpick should come out clean.</li>
-                                <li><strong>Cool:</strong> Let rest in pan 5 minutes before transferring to wire rack.</li>
-                            </ol>
-                            <div class="storage-tip">
-                                <h5>Meal Prep Tips:</h5>
-                                <ul>
-                                    <li><strong>Store:</strong> Keep in airtight container for 3-4 days in fridge</li>
-                                    <li><strong>Freeze:</strong> Wrap individually and freeze for up to 3 months</li>
-                                    <li><strong>Reheat:</strong> Microwave 30-45 seconds or oven at 300°F for 10 mins</li>
-                                </ul>
-                            </div>
-                            <div class="variation-tip">
-                                <strong>Try These Variations:</strong>
-                                <ul>
-                                    <li><em>Mediterranean:</em> Feta, sun-dried tomatoes, spinach</li>
-                                    <li><em>Southwest:</em> Black beans, corn, jalapeños, pepper jack</li>
-                                    <li><em>Keto:</em> Heavy cream instead of milk, add sausage</li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-   
-    <div class="recipe-card vegan-recipe">
-        <div class="recipe-card-inner">
-            <div class="recipe-card-front">
-                <img src="Stuffed sweet potato.jpg" alt="Stuffed Sweet Potatoes" class="card-img">
-                <div class="card-title-overlay">
-                    <h3>Stuffed Sweet Potatoes</h3>
-                    <div class="vegan-badge">VEGAN</div>
-                </div>
-            </div>
-            <div class="recipe-card-back">
-                <div class="recipe-content">
-                    <h3>Stuffed Sweet Potatoes with Chickpeas & Spinach</h3>
-                    <div class="recipe-meta">
-                        <span><strong>Serves:</strong> 4</span>
-                        <span><strong>Prep:</strong> 15 mins</span>
-                        <span><strong>Cook:</strong> 45 mins</span>
-                    </div>
-                    <div class="recipe-details">
-                        <div class="ingredients">
-                            <h4>Ingredients:</h4>
-                            <ul>
-                                <li>4 medium sweet potatoes (about 2 lbs)</li>
-                                <li>1 tbsp olive oil</li>
-                                <li>1 can (15oz) chickpeas, drained</li>
-                                <li>3 cups fresh spinach, chopped</li>
-                                <li>½ red onion, diced</li>
-                                <li>2 garlic cloves, minced</li>
-                                <li>1 tsp cumin</li>
-                                <li>½ tsp smoked paprika</li>
-                                <li>¼ tsp cinnamon</li>
-                                <li>Salt & pepper to taste</li>
-                            </ul>
-                            <h5>For Serving:</h5>
-                            <ul>
-                                <li>¼ cup tahini</li>
-                                <li>2 tbsp lemon juice</li>
-                                <li>2 tbsp chopped parsley</li>
-                                <li>1 tbsp toasted pine nuts (optional)</li>
-                            </ul>
-                        </div>
-                        <div class="instructions">
-                            <h4>Instructions:</h4>
-                            <ol>
-                                <li><strong>Roast potatoes:</strong> Preheat oven to 400°F (200°C). Scrub potatoes, pierce with fork, rub with oil, and bake directly on rack for 40-50 mins until tender.</li>
-                                <li><strong>Make filling:</strong> While potatoes bake, heat oil in pan. Sauté onion 3 mins, add garlic and spices, cook 1 min. Add chickpeas and spinach, cook until spinach wilts (2-3 mins). Season with salt and pepper.</li>
-                                <li><strong>Prepare sauce:</strong> Whisk tahini with lemon juice and 2 tbsp water until smooth.</li>
-                                <li><strong>Assemble:</strong> Slice potatoes open, fluff flesh with fork. Stuff with chickpea mixture, drizzle with tahini sauce, and garnish with parsley and pine nuts.</li>
-                            </ol>
-                            <div class="nutrition-tip">
-                                <strong>Nutrition Per Serving:</strong> 380 kcal | 12g protein | 18g fiber | Excellent source of Vitamin A (400% DV)
-                            </div>
-                            <div class="variation-tip">
-                                <strong>Variations:</strong>
-                                <ul>
-                                    <li><em>Spicy:</em> Add ½ tsp chili flakes or harissa paste</li>
-                                    <li><em>Creamy:</em> Swap tahini for coconut yogurt</li>
-                                    <li><em>Extra protein:</em> Add ¼ cup crumbled feta (non-vegan)</li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    
-    <div class="recipe-card">
-        <div class="recipe-card-inner">
-            <div class="recipe-card-front">
-                <img src="Avo-Chicken Salad.jpeg" alt="Chicken Avocado Salad" class="card-img">
-                <div class="card-title-overlay">
-                    <h3>Chicken Avocado Salad</h3>
-                    <div class="badge">🥑 High Protein</div>
-                </div>
-            </div>
-            <div class="recipe-card-back">
-                <div class="recipe-content">
-                    <h3>Creamy Chicken Avocado Salad</h3>
-                    <div class="recipe-meta">
-                        <span><strong>Serves:</strong> 4</span>
-                        <span><strong>Prep:</strong> 15 mins</span>
-                        <span><strong>Cook:</strong> 12 mins</span>
-                        <span><strong>Total:</strong> 27 mins</span>
-                    </div>
-                    <div class="recipe-details">
-                        <div class="ingredients">
-                            <h4>Ingredients:</h4>
-                            <h5>Salad Ingredients:</h5>
-                            <ul>
-                                <li>2 boneless chicken breasts (about 1 lb)</li>
-                                <li>1 tbsp olive oil</li>
-                                <li>½ tsp garlic powder</li>
-                                <li>½ tsp paprika</li>
-                                <li>2 ripe avocados, diced</li>
-                                <li>½ English cucumber, diced</li>
-                                <li>1 cup cherry tomatoes, halved</li>
-                                <li>¼ red onion, thinly sliced</li>
-                                <li>2 cups mixed greens</li>
-                            </ul>
-                            <h5>Creamy Lime Dressing:</h5>
-                            <ul>
-                                <li>⅓ cup Greek yogurt</li>
-                                <li>2 tbsp lime juice</li>
-                                <li>1 tbsp honey</li>
-                                <li>1 tsp lime zest</li>
-                                <li>½ tsp cumin</li>
-                                <li>Salt & pepper to taste</li>
-                            </ul>
-                        </div>
-                        <div class="instructions">
-                            <h4>Instructions:</h4>
-                            <ol>
-                                <li><strong>Cook chicken:</strong> Season chicken with garlic powder, paprika, salt and pepper. Heat oil in pan over medium-high. Cook chicken 6 mins per side until 165°F internal temp. Let rest 5 mins, then dice.</li>
-                                <li><strong>Make dressing:</strong> Whisk yogurt, lime juice, honey, zest, cumin, salt and pepper until smooth.</li>
-                                <li><strong>Prep veggies:</strong> Dice avocado (squeeze lime juice over to prevent browning), cucumber, and halve tomatoes.</li>
-                                <li><strong>Assemble:</strong> In large bowl, combine greens, chicken, avocado, cucumber, tomatoes and onion. Drizzle with dressing and toss gently.</li>
-                            </ol>
-                            <div class="serving-tip">
-                                <h5>Serving Suggestions:</h5>
-                                <ul>
-                                    <li>In lettuce cups for low-carb option</li>
-                                    <li>As a sandwich filling in crusty bread</li>
-                                    <li>With tortilla chips for a hearty dip</li>
-                                    <li>Over quinoa for extra protein</li>
-                                </ul>
-                            </div>
-                            <div class="storage-tip">
-                                <strong>Storage Tip:</strong> Store undressed salad in airtight container for up to 2 days. Add avocado and dressing just before serving.
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-
-    <div class="recipe-card">
-        <div class="recipe-card-inner">
-            <div class="recipe-card-front">
-                <img src="English breakast.jpeg" alt="Full English Breakfast" class="card-img">
-                <div class="card-title-overlay">
-                    <h3>English Breakfast</h3>
-                    <div class="badge">🇬🇧 No Pork</div>
-                </div>
-            </div>
-            <div class="recipe-card-back">
-                <div class="recipe-content">
-                    <h3>Full English Breakfast (Pork-Free)</h3>
-                    <div class="recipe-meta">
-                        <span><strong>Serves:</strong> 2</span>
-                        <span><strong>Prep:</strong> 10 mins</span>
-                        <span><strong>Cook:</strong> 20 mins</span>
-                    </div>
-                    <div class="recipe-details">
-                        <div class="ingredients">
-                            <h4>Ingredients:</h4>
-                            <ul>
-                                <li><strong>Eggs:</strong> 4 large eggs</li>
-                                <li><strong>Bread:</strong> 4 slices sourdough or brown bread</li>
-                                <li><strong>Meat Substitute:</strong> 4 vegetarian sausages</li>
-                                <li><strong>Mushrooms:</strong> 1 cup button mushrooms, halved</li>
-                                <li><strong>Tomatoes:</strong> 2 medium tomatoes, halved</li>
-                                <li><strong>Beans:</strong> 1 cup baked beans in tomato sauce</li>
-                                <li><strong>Seasonings:</strong> Salt, pepper, paprika, thyme</li>
-                                <li><strong>Fats:</strong> 2 tbsp butter + 1 tbsp olive oil</li>
-                            </ul>
-                        </div>
-                        <div class="instructions">
-                            <h4>Cooking Method:</h4>
-                            <ol>
-                                <li><strong>Sausages:</strong> Cook vegetarian sausages in skillet with 1 tbsp oil, turning occasionally for 8-10 mins until browned.</li>
-                                <li><strong>Mushrooms:</strong> In same pan, sauté mushrooms with thyme and pinch of salt until golden (4-5 mins). Remove and keep warm.</li>
-                                <li><strong>Tomatoes:</strong> Grill tomato halves cut-side down in same pan for 3-4 mins until charred.</li>
-                                <li><strong>Beans:</strong> Heat beans in small saucepan over low heat (add splash of water if too thick).</li>
-                                <li><strong>Eggs:</strong> In clean pan, melt butter over medium-low. Crack eggs and cook sunny-side up for 3-4 mins until whites set but yolks are runny.</li>
-                                <li><strong>Toast:</strong> Butter and toast bread until golden.</li>
-                            </ol>
-                            <h4>Assembly:</h4>
-                            <p>Divide all components between two warm plates. Serve immediately with tea or coffee.</p>
-                            <div class="variation-tip">
-                                <strong>Substitution Ideas:</strong>
-                                <ul>
-                                    <li><em>Sausages:</em> Turkey sausages, veggie patties, or halloumi slices</li>
-                                    <li><em>Beans:</em> Swap for lentil stew or chickpeas in tomato sauce</li>
-                                    <li><em>Hash Browns:</em> Try roasted potato wedges or sweet potato hash</li>
-                                </ul>
-                            </div>
-                            <div class="timing-tip">
-                                <strong>Timing Tip:</strong> Start with longest-cooking items first (sausages → mushrooms → tomatoes → eggs/toast)
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-    
-   
-
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.bundle.min.js"></script>
-
+    </nav>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css" rel="stylesheet">
         
-    <!--Footer-->
+    <div class="container"> 
+        <div class="recipes-grid">
+        
+            <div class="recipe-card">
+                <div class="recipe-img" style="background-image: url('https://images.unsplash.com/photo-1546069901-ba9599a7e63c?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80');"></div>
+                <div class="recipe-content">
+                    <h2 class="recipe-title">Roasted Potatoes with Eggs</h2>
+                    <p class="recipe-description">Crispy roasted potatoes topped with sunny-side-up eggs.</p>
+                    <h3 class="ingredients-title">Ingredients:</h3>
+                    <ul class="ingredients-list">
+                        <li>Potatoes</li>
+                        <li>Eggs</li>
+                        <li>Olive oil</li>
+                        <li>Salt</li>
+                        <li>Pepper</li>
+                        <li>Paprika</li>
+                    </ul>
+                </div>
+            </div>
+            
+          
+            <div class="recipe-card">
+                <div class="recipe-img" style="background-image: url('https://images.unsplash.com/photo-1550583724-b2692b85b150?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80');"></div>
+                <div class="recipe-content">
+                    <h2 class="recipe-title">Spinach Pancakes</h2>
+                    <p class="recipe-description">Fluffy green pancakes packed with spinach for a healthy twist.</p>
+                    <h3 class="ingredients-title">Ingredients:</h3>
+                    <ul class="ingredients-list">
+                        <li>Spinach</li>
+                        <li>Flour</li>
+                        <li>Eggs</li>
+                        <li>Milk</li>
+                        <li>Baking powder</li>
+                        <li>Salt</li>
+                    </ul>
+                </div>
+            </div>
+            
+          
+            <div class="recipe-card">
+                <div class="recipe-img" style="background-image: url('https://images.unsplash.com/photo-1512058564366-18510be2db19?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80');"></div>
+                <div class="recipe-content">
+                    <h2 class="recipe-title">Avocado and Chickpea Quinoa Bowl</h2>
+                    <p class="recipe-description">A protein-packed bowl with creamy avocado and spiced chickpeas.</p>
+                    <h3 class="ingredients-title">Ingredients:</h3>
+                    <ul class="ingredients-list">
+                        <li>Quinoa</li>
+                        <li>Avocado</li>
+                        <li>Chickpeas</li>
+                        <li>Lemon</li>
+                        <li>Olive oil</li>
+                        <li>Salt</li>
+                        <li>Pepper</li>
+                    </ul>
+                </div>
+            </div>
+            
+       
+            <div class="recipe-card">
+                <div class="recipe-img" style="background-image: url('https://images.unsplash.com/photo-1588345681128-8822365a4d5a?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80');"></div>
+                <div class="recipe-content">
+                    <h2 class="recipe-title">Smoked Salmon Bagel</h2>
+                    <p class="recipe-description">Classic smoked salmon on a toasted bagel with cream cheese and toppings.</p>
+                    <h3 class="ingredients-title">Ingredients:</h3>
+                    <ul class="ingredients-list">
+                        <li>Bagel</li>
+                        <li>Smoked salmon</li>
+                        <li>Cream cheese</li>
+                        <li>Red onion</li>
+                        <li>Capers</li>
+                        <li>Dill</li>
+                        <li>Lemon</li>
+                    </ul>
+                </div>
+            </div>
+            
+           
+            <div class="recipe-card">
+                <div class="recipe-img" style="background-image: url('https://images.unsplash.com/photo-1550583724-b2692b85b150?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80');"></div>
+                <div class="recipe-content">
+                    <h2 class="recipe-title">Egg Muffins</h2>
+                    <p class="recipe-description">Baked egg cups with veggies, perfect for meal prep.</p>
+                    <h3 class="ingredients-title">Ingredients:</h3>
+                    <ul class="ingredients-list">
+                        <li>Eggs</li>
+                        <li>Bell peppers</li>
+                        <li>Spinach</li>
+                        <li>Cheese</li>
+                        <li>Salt</li>
+                        <li>Pepper</li>
+                    </ul>
+                </div>
+            </div>
+            
+          
+            <div class="recipe-card">
+                <div class="recipe-img" style="background-image: url('https://images.unsplash.com/photo-1547592180-85f173990554?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80');"></div>
+                <div class="recipe-content">
+                    <h2 class="recipe-title">Chickpea Stuffed Sweet Potatoes</h2>
+                    <p class="recipe-description">Roasted sweet potatoes filled with spiced chickpeas and tahini sauce.</p>
+                    <h3 class="ingredients-title">Ingredients:</h3>
+                    <ul class="ingredients-list">
+                        <li>Sweet potatoes</li>
+                        <li>Chickpeas</li>
+                        <li>Tahini</li>
+                        <li>Lemon</li>
+                        <li>Garlic</li>
+                        <li>Cumin</li>
+                        <li>Parsley</li>
+                    </ul>
+                </div>
+            </div>
+            
+          
+            <div class="recipe-card">
+                <div class="recipe-img" style="background-image: url('https://images.unsplash.com/photo-1546069901-456196073499?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80');"></div>
+                <div class="recipe-content">
+                    <h2 class="recipe-title">Chicken Avocado Salad</h2>
+                    <p class="recipe-description">A fresh and protein-rich salad with creamy avocado.</p>
+                    <h3 class="ingredients-title">Ingredients:</h3>
+                    <ul class="ingredients-list">
+                        <li>Chicken breast</li>
+                        <li>Avocado</li>
+                        <li>Mixed greens</li>
+                        <li>Cherry tomatoes</li>
+                        <li>Cucumber</li>
+                        <li>Lemon vinaigrette</li>
+                    </ul>
+                </div>
+            </div>
+            
+            
+            <div class="recipe-card">
+                <div class="recipe-img" style="background-image: url('https://images.unsplash.com/photo-1558584724-0e4d32ca55a4?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80');"></div>
+                <div class="recipe-content">
+                    <h2 class="recipe-title">Full English Breakfast (Vegetarian)</h2>
+                    <p class="recipe-description">A hearty vegetarian version of the classic English breakfast.</p>
+                    <h3 class="ingredients-title">Ingredients:</h3>
+                    <ul class="ingredients-list">
+                        <li>Vegetarian sausages</li>
+                        <li>Baked beans</li>
+                        <li>Tomatoes</li>
+                        <li>Mushrooms</li>
+                        <li>Toast</li>
+                        <li>Eggs</li>
+                        <li>Hash browns</li>
+                    </ul>
+                </div>
+            </div>
+            
+          
+            <div class="recipe-card">
+                <div class="recipe-img" style="background-image: url('https://images.unsplash.com/photo-1505576399279-565b52d4ac71?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80');"></div>
+                <div class="recipe-content">
+                    <h2 class="recipe-title">Greek Yogurt Parfait</h2>
+                    <p class="recipe-description">Layered yogurt with crunchy granola and sweet berries.</p>
+                    <h3 class="ingredients-title">Ingredients:</h3>
+                    <ul class="ingredients-list">
+                        <li>Greek yogurt</li>
+                        <li>Granola</li>
+                        <li>Mixed berries</li>
+                        <li>Honey</li>
+                        <li>Chia seeds</li>
+                    </ul>
+                </div>
+            </div>
+            
+           
+            <div class="recipe-card">
+                <div class="recipe-img" style="background-image: url('https://images.unsplash.com/photo-1608500218707-8f628e234952?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80');"></div>
+                <div class="recipe-content">
+                    <h2 class="recipe-title">Banana Oatmeal</h2>
+                    <p class="recipe-description">Creamy oatmeal sweetened with banana and topped with nuts.</p>
+                    <h3 class="ingredients-title">Ingredients:</h3>
+                    <ul class="ingredients-list">
+                        <li>Oats</li>
+                        <li>Banana</li>
+                        <li>Almond milk</li>
+                        <li>Cinnamon</li>
+                        <li>Maple syrup</li>
+                        <li>Walnuts</li>
+                    </ul>
+                </div>
+            </div>
+            
+                        <div class="recipe-card">
+                <div class="recipe-img" style="background-image: url('https://images.unsplash.com/photo-1551782450-a2132b4ba21d?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80');"></div>
+                <div class="recipe-content">
+                    <h2 class="recipe-title">Veggie Breakfast Burrito</h2>
+                    <p class="recipe-description">A filling burrito packed with eggs, beans, and fresh veggies.</p>
+                    <h3 class="ingredients-title">Ingredients:</h3>
+                    <ul class="ingredients-list">
+                        <li>Tortilla</li>
+                        <li>Scrambled eggs</li>
+                        <li>Black beans</li>
+                        <li>Avocado</li>
+                        <li>Salsa</li>
+                        <li>Cheese</li>
+                        <li>Bell peppers</li>
+                    </ul>
+                </div>
+            </div>
+            
+            
+            <div class="recipe-card">
+                <div class="recipe-img" style="background-image: url('https://images.unsplash.com/photo-1482049016688-2d3e1b311543?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80');"></div>
+                <div class="recipe-content">
+                    <h2 class="recipe-title">Blueberry Smoothie Bowl</h2>
+                    <p class="recipe-description">A thick smoothie bowl topped with crunchy granola and seeds.</p>
+                    <h3 class="ingredients-title">Ingredients:</h3>
+                    <ul class="ingredients-list">
+                        <li>Frozen blueberries</li>
+                        <li>Banana</li>
+                        <li>Almond milk</li>
+                        <li>Granola</li>
+                        <li>Coconut flakes</li>
+                        <li>Chia seeds</li>
+                    </ul>
+                </div>
+            </div>
+            
+            
+            <div class="recipe-card">
+                <div class="recipe-img" style="background-image: url('https://images.unsplash.com/photo-1518779578993-ec3579fee39f?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80');"></div>
+                <div class="recipe-content">
+                    <h2 class="recipe-title">Shakshuka</h2>
+                    <p class="recipe-description">Poached eggs in a spicy tomato and pepper sauce.</p>
+                    <h3 class="ingredients-title">Ingredients:</h3>
+                    <ul class="ingredients-list">
+                        <li>Eggs</li>
+                        <li>Tomatoes</li>
+                        <li>Bell peppers</li>
+                        <li>Onion</li>
+                        <li>Garlic</li>
+                        <li>Cumin</li>
+                        <li>Paprika</li>
+                        <li>Feta cheese</li>
+                    </ul>
+                </div>
+            </div>
+            
+            
+            <div class="recipe-card">
+                <div class="recipe-img" style="background-image: url('https://images.unsplash.com/photo-1484723091739-30a097e8f929?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80');"></div>
+                <div class="recipe-content">
+                    <h2 class="recipe-title">Peanut Butter Banana Toast</h2>
+                    <p class="recipe-description">Simple yet delicious toast with peanut butter and banana slices.</p>
+                    <h3 class="ingredients-title">Ingredients:</h3>
+                    <ul class="ingredients-list">
+                        <li>Whole grain bread</li>
+                        <li>Peanut butter</li>
+                        <li>Banana</li>
+                        <li>Chia seeds</li>
+                        <li>Honey</li>
+                    </ul>
+                </div>
+            </div>
+            
+
+            <div class="recipe-card">
+                <div class="recipe-img" style="background-image: url('https://images.unsplash.com/photo-1490645935967-10de6ba17061?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80');"></div>
+                <div class="recipe-content">
+                    <h2 class="recipe-title">Tofu Scramble</h2>
+                    <p class="recipe-description">A vegan alternative to scrambled eggs, packed with flavor.</p>
+                    <h3 class="ingredients-title">Ingredients:</h3>
+                    <ul class="ingredients-list">
+                        <li>Tofu</li>
+                        <li>Turmeric</li>
+                        <li>Nutritional yeast</li>
+                        <li>Spinach</li>
+                        <li>Tomatoes</li>
+                        <li>Onion</li>
+                        <li>Garlic</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        
+       <!--Footer-->
   <footer class="bg-success text-white text-center text-lg-start mt-5">
   <div class="container p-4">
     <p class="text-center">
@@ -792,9 +484,6 @@
       "So whether you eat or drink or whatever you do, do it all for the glory of God." — 1 Corinthians 10:31
     </p>
   </div>
-</footer>
+</footer> 
 </body>
 </html>
-    
-    
-    
